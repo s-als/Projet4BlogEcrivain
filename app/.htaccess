@@ -1,0 +1,2 @@
+#Make entire folder unaccessible for browsers
+Options -Indexes
