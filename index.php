@@ -1,4 +1,16 @@
 <?php
-require_once '../app/require.php';
+
+
+$params = explode('/', $_GET['p']);
+
+if($params[0] != ""){
+
+}else{
+    
+}
+
+var_dump($params);
+
+
 
 
