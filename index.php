@@ -1,16 +1,16 @@
+<!--CSS-->
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
+
+
+
+
 <?php
+    require ('app/controllers/Router.php');
+    define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
+
+    $router = new Router();
+    $router->requestRoute();
 
 
-$params = explode('/', $_GET['p']);
-
-if($params[0] != ""){
-
-}else{
-    
-}
-
-var_dump($params);
-
-
-
-
+?>;
