@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 class Router 
 {
 
@@ -16,7 +19,10 @@ class Router
             $controller = new $controller();
 
             if(method_exists($controller, $action)){
-                $controller->$action();
+                unset($params[0]);
+                unset($params[1]);
+                call_user_func_array([$controller, $action], $params);
+                //$controller->$action();
             } else {
                 http_response_code(404);
                 echo "La page demandée n'existe pas";

@@ -12,6 +12,7 @@ abstract class ModelMain
     public $table;
     public $id;
 
+
     public function getConnection(){
         $this->_connection = null;
 
@@ -22,5 +23,20 @@ abstract class ModelMain
             echo 'Erreur : '. $exception->getMessage();
         }
     }
+
+
+    public function getAll(){
+        $sql = "SELECT * FROM ". $this->table;
+        $query = $this->_connection->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
     
+
+    public function getOne(){
+        $sql = "SELECT * FROM ". $this->table ."WHERE id=" .$this->id;
+        $query = $this->_connection->prepare($sql);
+        $query->execute();
+        return $query->fetch();
+    }
 }

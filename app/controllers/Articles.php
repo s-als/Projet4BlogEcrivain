@@ -1,8 +1,19 @@
 <?php
 
-class Articles {
+class Articles extends Controller
+{
     public function index(){
-        echo "acceuil";
+        $this->loadModel("ModelArticles");
+        $articles = $this->ModelArticles->getAll();
+
+        $this->render('index', compact('articles'));
+    }
+
+
+    public function read($id, $slug){
+        echo $id;
+        echo $slug;
     }
 
 }
+
