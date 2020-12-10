@@ -10,9 +10,10 @@ class Articles extends Controller
     }
 
 
-    public function read($id, $slug){
-        echo $id;
-        echo $slug;
+    public function chapitre($URLparams3){
+        $this->loadModel("ModelArticles");
+        $article = $this->ModelArticles->findByChapterTitle($URLparams3);
+        $this->render('chapitre', compact('article'));
     }
 
 }

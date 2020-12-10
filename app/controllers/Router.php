@@ -1,12 +1,7 @@
 <?php
 
-
-
-
 class Router 
 {
-
-
     public function requestRoute (){
         $params = explode('/', $_GET['p']);
 
@@ -27,13 +22,11 @@ class Router
                 http_response_code(404);
                 echo "La page demandée n'existe pas";
             }
-            
 
         }else{
             
         }
-    }
-        
+    } 
 }
 
 
