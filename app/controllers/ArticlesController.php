@@ -1,12 +1,12 @@
 <?php
 
-class Articles extends Controller
+class ArticlesController extends Controller
 {
     public function index(){
         $this->loadModel("ModelArticles");
         $articles = $this->ModelArticles->getAll();
 
-        $this->render('index', compact('articles'));
+        $this->render('allArticles', compact('articles'));
     }
 
 

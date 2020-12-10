@@ -6,5 +6,13 @@
 #RewriteCond %(REQUEST_FILENAME) !-f
 #RewriteRule ^(.+)$ index.php?r=$1 [QSA,L]
 
+#RewriteEngine On
+#RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1
+
+
+Options -Multiviews
 RewriteEngine On
-RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1
+#RewriteBase /projet4blogecrivain/public
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]

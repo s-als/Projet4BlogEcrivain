@@ -7,13 +7,13 @@ abstract class Controller
         $this->$model = new $model();
     }
 
-    public function render(string $file, array $data =[]){
+    public function render($viewName, array $data =[]){
         extract($data);
 
         //Turn on output buffering:
         ob_start();
 
-        require_once(ROOT.'app/views/'.strtolower(get_class($this)). '/'. $file.'.php');
+        require_once(ROOT.'app/views/'. $viewName .'.php');
 
         $content = ob_get_clean();
 
