@@ -1,6 +1,3 @@
-<!--CSS-->
-<link href="/public/css/style.css" rel="stylesheet">
-<link href="/public/css/bootstrap.min.css" rel="stylesheet">
 
 <h1>Liste des articles</h1>
 

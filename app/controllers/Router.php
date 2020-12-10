@@ -14,7 +14,7 @@ class Router
                 $controllerClass = $controller."Controller";
                 $controllerFile = ROOT.'app/controllers/'.$controllerClass.'.php';
                 $action = isset($url[1]) ? $url[1] : 'index';
-                
+
                 if(file_exists($controllerFile)){
                     require_once($controllerFile);
                     $controller = new $controllerClass();
@@ -35,6 +35,7 @@ class Router
             }else{ 
                 require_once(ROOT.'app/controllers/HomeController.php');
                 $controller = new HomeController();
+                $controller->index();
             }
         }
         catch(Exception $e)
