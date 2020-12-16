@@ -13,7 +13,7 @@
     
     <?php require_once (ROOT.'app/views/footer.php')?>
 
-
+    
     <!-- JS -->
     <script src="public/js/bootstrap.bundle.min.js"></script>
     <script src="public/js/main.js"></script>

@@ -7,6 +7,8 @@
                 <p class="text-white-50">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac sem rhoncus libero venenatis malesuada. Duis eget velit neque. Etiam vel aliquam nulla, quis rhoncus ipsum. Nulla at aliquet velit, eget pellentesque nisl. Donec facilisis massa a ligula ultricies, quis gravida lorem consectetur. In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam vel scelerisque lectus. Phasellus justo augue, vulputate et consectetur eget, tincidunt ac nisl. Nunc semper cursus ligula, id placerat velit ullamcorper at. In metus purus, ornare at sagittis eu, rutrum ut mauris.
                 <a href="/articles">Tous les articles</a>
+                <a class="btn btn-secondary btn-sm" href="#projects">Mes livres</a>
+                <a class="btn btn-secondary btn-sm" href="#projects">Mes roles</a>
                 </p>
             </div>
         </div>
@@ -18,11 +20,12 @@
     <div class="container">
         <!-- Featured Project Row-->
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="public/images/bg-masthead.jpg" alt="" /></div>
+            <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="public/images/alaska4.jpg" alt="" /></div>
             <div class="col-xl-4 col-lg-5">
                 <div class="featured-text text-center text-lg-left">
-                    <h4>Shoreline</h4>
-                    <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+                    <h4>Un billet simple pour l'Alaska</h4>
+                    <p class="text-black-50 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac sem rhoncus libero venenatis malesuada.</p>
+                    <a class="btn btn-secondary btn-sm" href="#about">Commencer la lecture</a>
                 </div>
             </div>
         </div>
@@ -33,8 +36,8 @@
                 <div class="bg-black text-center h-100 project">
                     <div class="d-flex h-100">
                         <div class="project-text w-100 my-auto text-center text-lg-left">
-                            <h4 class="text-white">Misty</h4>
-                            <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                            <h4 class="text-white">Lorem</h4>
+                            <p class="mb-0 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             <hr class="d-none d-lg-block mb-0 ml-0" />
                         </div>
                     </div>
@@ -48,8 +51,8 @@
                 <div class="bg-black text-center h-100 project">
                     <div class="d-flex h-100">
                         <div class="project-text w-100 my-auto text-center text-lg-right">
-                            <h4 class="text-white">Mountains</h4>
-                            <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                            <h4 class="text-white">Lorem</h4>
+                            <p class="mb-0 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             <hr class="d-none d-lg-block mb-0 mr-0" />
                         </div>
                     </div>
@@ -64,10 +67,10 @@
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
                 <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+                <h2 class="text-white mb-5">Entrer votre adresse email pour recevoir les dernières infos!</h2>
                 <form class="form-inline d-flex">
                     <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Enter email address..." />
-                    <button class="btn btn-primary mx-auto" type="submit">Subscribe</button>
+                    <button class="btn btn-primary mx-auto" type="submit">VALIDER</button>
                 </form>
             </div>
         </div>

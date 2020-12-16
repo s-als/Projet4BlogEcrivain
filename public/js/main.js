@@ -20,7 +20,7 @@ const scrollTo = function(to, duration) {
     const
     element = document.scrollingElement || document.documentElement,
     start = element.scrollTop;
-console.log('element.scrollTop:' + element.scrollTop);
+//console.log('element.scrollTop:' + element.scrollTop);
     const
     change = to - start,
     startDate = +new Date(),
@@ -36,13 +36,13 @@ console.log('element.scrollTop:' + element.scrollTop);
     },
     animateScroll = function() {
         const currentDate = +new Date();
-console.log('currentDate:' + currentDate);
+//console.log('currentDate:' + currentDate);
         const currentTime = currentDate - startDate;
-console.log('startDate:' + startDate);
-console.log('currentTime:' + currentTime);
+//console.log('startDate:' + startDate);
+//console.log('currentTime:' + currentTime);
         element.scrollTop = parseInt(easeInOutExpo(currentTime, start, change, duration));
-        console.log('easeInOutExpo:' + easeInOutExpo(currentTime, start, change, duration));
-console.log('New element.scrollTop:' + element.scrollTop);
+//console.log('easeInOutExpo:' + easeInOutExpo(currentTime, start, change, duration));
+//console.log('New element.scrollTop:' + element.scrollTop);
         if(currentTime < duration) {
             requestAnimationFrame(animateScroll);
         }
@@ -52,3 +52,19 @@ console.log('New element.scrollTop:' + element.scrollTop);
     };
     animateScroll();
 };
+
+
+
+
+//Back To Top Button
+const mybutton = document.getElementById("BackToTopBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
