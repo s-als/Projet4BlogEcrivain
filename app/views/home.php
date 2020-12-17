@@ -1,5 +1,5 @@
 
-<?php require_once (ROOT.'app/views/header.php')?>
+<?php require_once (ROOT.'app/views/header.php');?>
 
 <!-- About-->
 <section class="about-section text-center" id="about">
