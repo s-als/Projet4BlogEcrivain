@@ -5,8 +5,7 @@
     
 <body id="page-top">
     <?php require_once (ROOT.'app/views/navBar.php')?>
-    <?php require_once (ROOT.'app/views/header.php')?>
-    
+
     <section id="content" >
         <?= $content ?>
     </section>

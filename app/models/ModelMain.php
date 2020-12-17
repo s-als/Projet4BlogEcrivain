@@ -31,12 +31,18 @@ abstract class ModelMain
         $query->execute();
         return $query->fetchAll();
     }
-    
 
-    public function getOne(){
-        $sql = "SELECT * FROM ". $this->table ."WHERE id=" .$this->id;
+    public function queryAndfetch($sql){
         $query = $this->_connection->prepare($sql);
         $query->execute();
         return $query->fetch();
     }
+    
+
+    /*public function getById(){
+        $sql = "SELECT * FROM ". $this->table ."WHERE id=" .$this->id;
+        $query = $this->_connection->prepare($sql);
+        $query->execute();
+        return $query->fetch();
+    }*/
 }
