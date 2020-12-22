@@ -1,6 +1,3 @@
-
-
-
 <header class="chaptershead">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
@@ -14,7 +11,7 @@
 
 <h2>Commentaires</h2>
 
-<form action="">
+<form method="post" action="<?php echo $article['id'] ?>">
     <div>
         <label for="name">Auteur</label><br />
         <input type="text" id="name" name="name" />
@@ -24,6 +21,7 @@
         <textarea id="comment" name="comment"></textarea>
     </div>
     <div>
+        <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
         <input type="submit" />
     </div>
 </form>

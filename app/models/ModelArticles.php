@@ -1,4 +1,7 @@
 <?php
+
+//namespace app\model;
+
 class ModelArticles extends ModelMain{
 
     

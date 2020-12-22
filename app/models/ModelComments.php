@@ -1,4 +1,7 @@
 <?php
+
+//namespace app\model;
+
 class ModelComments extends ModelMain{
 
     
@@ -19,7 +22,8 @@ class ModelComments extends ModelMain{
         return parent::queryAndfetch($sql);
     }
 
-    /*public function addComment($data){
-        $sql = "INSERT INTO ". $this->table ."(name, create_date, comment, post_id) VALUES(?, ?, ?, NOW())'";
-    }*/
+    public function addCommentToDBB($name, $comment, $post_id){
+        $sql = "INSERT INTO ". $this->table ." (name, comment, post_id) VALUES('$name', '$comment', '$post_id')";
+        return parent::queryAndfetch($sql);
+    }
 }

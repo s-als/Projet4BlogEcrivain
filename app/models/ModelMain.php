@@ -1,5 +1,7 @@
 <?php
 
+//namespace app\model;
+
 abstract class ModelMain
 {
     private $host = "localhost";

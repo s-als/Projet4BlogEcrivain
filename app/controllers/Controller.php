@@ -1,9 +1,12 @@
 <?php
 
+//namespace app\controllers;
+
 abstract class Controller
 {
     public function loadModel(string $model){
         require_once(ROOT. 'app/models/'.$model.'.php');
+        //$model = 'app\model\\' .$model;
         $this->$model = new $model();
     }
 
@@ -17,6 +20,9 @@ abstract class Controller
 
         $content = ob_get_clean();
 
+        if (stripos($viewName, 'admin') !== FALSE){
+            require_once(ROOT.'app/views/layouts/defaultAdmin.php');
+        } else
         require_once(ROOT.'app/views/layouts/default.php');
     }
 }

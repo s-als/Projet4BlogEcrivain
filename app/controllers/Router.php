@@ -1,5 +1,7 @@
 <?php
 
+//namespace app\controllers;
+
 class Router 
 {
     public function requestRoute (){
@@ -17,6 +19,7 @@ class Router
 
                 if(file_exists($controllerFile)){
                     require_once($controllerFile);
+                    //$controllerClass = 'app\controllers\\' .$controllerClass;
                     $controller = new $controllerClass();
                 }
                 

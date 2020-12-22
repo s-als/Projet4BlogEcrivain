@@ -1,6 +1,3 @@
-<!--<link href="/public/css/bootstrap.min.css" rel="stylesheet">
-<link href="/public/css/style.css" rel="stylesheet">-->
-
 <?php
     require ('app/controllers/Router.php');
     require ('app/config/config.php');
