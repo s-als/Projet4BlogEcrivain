@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 17 déc. 2020 à 01:17
+-- Généré le : mer. 23 déc. 2020 à 18:34
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `comment` text NOT NULL,
   `post_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `comments`
@@ -43,7 +43,9 @@ CREATE TABLE IF NOT EXISTS `comments` (
 
 INSERT INTO `comments` (`id`, `name`, `create_date`, `comment`, `post_id`) VALUES
 (1, 'Gustave LABAVE', '2020-12-16 22:33:57', 'Voici un commentaire', 1),
-(2, 'Frédéric ATOMIC', '2020-12-16 23:47:43', 'ICI un autre commentaire !', 1);
+(2, 'Frédéric ATOMIC', '2020-12-16 23:47:43', 'ICI un autre commentaire !', 1),
+(3, 'Olivier Timbré', '2020-12-17 16:48:40', 'Un commentaire ajouté directement avec le formulaire.', 1),
+(4, 'Norbert DENFER', '2020-12-21 20:15:52', 'Bien construit ce chapitre 2 !', 2);
 
 -- --------------------------------------------------------
 
@@ -82,8 +84,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   `create_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `image` varchar(255) NOT NULL,
+  `roles` json DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `create_date`, `image`, `roles`) VALUES
+(1, 'Jean Forteroche', 'salwan@free.fr', '$2y$10$Q1XraZJDeFZ7oMRWaJ9FcOHRAil/xJAL40nwbDWHe15qH1NDMPBEq', '2020-12-22 04:42:49', '', '[\"ROLE_ADMIN\"]');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
