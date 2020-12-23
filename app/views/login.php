@@ -31,17 +31,19 @@
 </div>
 
 
-<form action="login.php" method="post" name="login" id="loginForm">
+<form action="admin" method="post" name="login" id="loginForm">
 
     <div class="form-group">
         <label for="emailForm">Adresse Email</label>
         <input type="email" name="email" class="form-control" id="emailForm" placeholder="Entrer votre email...">
+        
     </div>
 
     <div class="form-group">
         <label for="passwordForm">Mot de passe</label>
-        <input type="password" class="form-control" id="passwordForm" placeholder="Mot de passe...">
+        <input type="password" name="password" class="form-control" id="passwordForm" placeholder="Mot de passe...">
+        <span class="help-block"><?php echo $errMsg; ?></span>
     </div>
-
-    <button type="submit" class="btn btn-primary">Valider</button>
+    
+    <button type="submit" name="submit" class="btn btn-primary">Valider</button>
 </form>

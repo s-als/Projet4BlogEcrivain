@@ -5,6 +5,9 @@
 class Router 
 {
     public function requestRoute (){
+
+        session_start();
+
         try
         {
             if(isset($_GET['url'])) {

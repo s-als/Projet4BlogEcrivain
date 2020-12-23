@@ -1,33 +1,31 @@
 <?php
-session_start();
+//session_start();
 
 class LoginController extends Controller
 {
+    private $errorMsg = ['errMsg' => ""];
+    
+
     public function index(){
-        $this->render('login');
+
+        if (isset($_GET["error"])){
+            if ($_GET["error"] == "emptyInput") {
+                $this->errorMsg = ['errMsg' => "Veuillez renseigner tous les champs."];
+            } else if ($_GET["error"] == "invalidLogin") {
+                $this->errorMsg = ['errMsg' => "L'email et / ou le mot de passe sont incorrectes."];
+
+            } 
+            
+        }
+
+    $this->render('login', $this->errorMsg);
     }
 
-    
-    public function login() {
-        if (isset($_POST['submit'])){
-            $email = htmlspecialchars($_POST['email']);
-            $password = htmlspecialchars($_POST['password']);
-            $this->loadModel("ModelLogin");
-            $allUsers = $this->ModelLogin->getAll();
-            $user = $this->ModelLogin->getUser();
-            
-            if($user->rowcount() > 0){
-                if (password_verify($password, $user[0]["password"] ))
-                {
-                    echo 'Connexion réussit !';
-                    $_SESSION['email'] = $email;
-                }
-            }else{
-                $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
-            }
-        }
+    public function invalidLogin($email, $password) {
+        $this->loadModel("ModelLogin");
+        $user = $this->ModelLogin->getUser($email, $password);
+        return $user;
     }
-        
 
 }
 

@@ -11,10 +11,13 @@ class ModelLogin extends ModelMain{
     }
 
     public function getUser($email, $password){
-        $sql = "SELECT * FROM `users` WHERE email='$email' and password='".hash('sha256', $password)."'";
+        $sql = "SELECT * FROM `users` WHERE email='$email' and password='$password'";
         return parent::queryAndfetch($sql);
     }
 
-
+    public function getUserByEmail($email){
+        $sql = "SELECT * FROM `users` WHERE email='$email'";
+        return parent::queryAndfetch($sql);
+    }
 
 }
