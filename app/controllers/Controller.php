@@ -22,7 +22,10 @@ abstract class Controller
 
         if (stripos($viewName, 'admin') !== FALSE){
             require_once(ROOT.'app/views/layouts/defaultAdmin.php');
-        } else
+        } else if (stripos($viewName, 'login') !== FALSE){
+            require_once(ROOT.'app/views/layouts/defaultLogin.php');
+        }
+        else
         require_once(ROOT.'app/views/layouts/default.php');
     }
 }

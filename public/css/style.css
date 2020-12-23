@@ -290,3 +290,35 @@ body {
 .bg-black {
   background-color: #000000 !important;
 }
+
+
+
+/*Login Form*/
+
+#loginForm {
+  max-width: 500px;
+  text-align: center;
+  margin: auto;
+  padding: 50px;
+}
+
+#loginForm button {
+  margin: 2em;
+}
+
+#loginNav{
+  padding: 50px;
+}
+
+#loginNav .container{
+  margin: auto;
+  width: auto;
+}
+
+
+#msgLogin p {
+  margin: auto;
+  font-size: 1.5em;
+  text-align: center;
+  padding-top: 2em;
+}

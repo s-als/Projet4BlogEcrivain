@@ -3,6 +3,11 @@ session_start();
 
 class LoginController extends Controller
 {
+    public function index(){
+        $this->render('login');
+    }
+
+    
     public function login() {
         if (isset($_POST['submit'])){
             $email = htmlspecialchars($_POST['email']);
