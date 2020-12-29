@@ -8,6 +8,14 @@ class AdminController extends Controller
     //private $errorMsg = "";
 
     public function index(){
+
+        if (isset($_SESSION["userEmail"])) { 
+            if ($_SESSION["userRole"] == 'ADMIN') {
+                $this->showAdminPage();
+            }
+        };
+        
+
         if (isset($_POST["submit"])) {
 
         $email = $_POST["email"];
@@ -17,21 +25,15 @@ class AdminController extends Controller
         if (empty($email) || empty($password)) {
             header("location: login?error=emptyInput");
             exit();
-        }
-        //$*UnMdpsupersecure48^ù%de4%
-        if ($this->checkLogin($email, $password) == FALSE) {
+        } 
+
+
+        if ($this->checkEmailAndPwd($email, $password) == FALSE) {
             header("location: login?error=invalidLogin");
             exit();
         }
         
-
-        $this->loadModel("ModelArticles");
-        $articles = $this->ModelArticles->getAll();
-
-        $this->loadModel("ModelComments");
-        $comments = $this->ModelComments->getAll();
-
-        $this->render('admin', compact('articles', 'comments'));
+        $this->showAdminPage();
         
         }
         else {
@@ -48,13 +50,36 @@ class AdminController extends Controller
         };
     }*/
 
-    public function checkLogin($email, $password) {
+    public function checkEmailAndPwd($email, $password) {
         $this->loadModel("ModelLogin");
         $user = $this->ModelLogin->getUserByEmail($email);
             if ($user == TRUE) {
-                $user = password_verify($password, $user['password']);
+                $pwdOk = password_verify($password, $user['password']);
+                if ($pwdOk == TRUE) {
+                    $_SESSION["userEmail"] = $user['email'];
+                    $_SESSION["userRole"] = $user['roles'];
+                }
+                //Erase $user informations:
+                $user = $pwdOk;
+                return $user;
             }
         return $user;
+    }
+
+    /*public function checkRoles($roles) {
+        $this->loadModel("ModelLogin");
+        $usersByRole = $this->ModelLogin->getUserByRoles($roles);
+        return $userByRole;
+    }*/
+
+    public function showAdminPage() {
+        $this->loadModel("ModelArticles");
+        $articles = $this->ModelArticles->getAll();
+
+        $this->loadModel("ModelComments");
+        $comments = $this->ModelComments->getAll();
+
+        $this->render('admin', compact('articles', 'comments'));
     }
 
 }

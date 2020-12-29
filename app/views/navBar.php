@@ -10,7 +10,7 @@
                 <li class="nav-item"><a class="nav-link" href="index.php#about">À Propos</a></li>
                 <li class="nav-item"><a class="nav-link" href="/index.php#projects">Livres</a></li>
                 <li class="nav-item"><a class="nav-link" href="/index.php#signup">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="/login">Espace Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="/admin">Espace Admin</a></li>
             </ul>
         </div>
     </div>

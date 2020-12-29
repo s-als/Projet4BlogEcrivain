@@ -20,4 +20,10 @@ class ModelLogin extends ModelMain{
         return parent::queryAndfetch($sql);
     }
 
+    public function getUserByRoles($roles){
+        $sql = "SELECT * FROM `users` WHERE roles='$roles'";
+        return parent::queryAndfetch($sql);
+    }
+
+
 }

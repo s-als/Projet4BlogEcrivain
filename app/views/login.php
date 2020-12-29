@@ -47,3 +47,9 @@
     
     <button type="submit" name="submit" class="btn btn-primary">Valider</button>
 </form>
+
+<?php
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
+?>
