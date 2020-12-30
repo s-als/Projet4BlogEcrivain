@@ -5,6 +5,7 @@
     
 <body id="page-top">
 
+
     <section id="content"><?= $content ?></section>
     
     <?php require_once (ROOT.'app/views/footer.php')?>

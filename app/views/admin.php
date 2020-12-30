@@ -1,3 +1,42 @@
+<div class="container-xl" id="adminMainContainer">
+
+
+  
+
+<div class="container-xl" id="adminCreateArticle">Rédiger un nouveau chapitre</div>
+
+<form method="post" action="admin/addChapter">
+    <div>
+        <label for="title">Titre</label><br />
+        <input type="text" id="title" name="title" />
+    </div>
+
+    <div>
+        <textarea id="mytextarea" name="mytextarea"> </textarea>
+    </div>
+
+    <div>
+        <input type="submit" />
+    </div>
+</form>
+
+
+<div class="container-xl" id="adminEditArticle">Editer un chapitre</div>
+
+<div class="container-xl" id="adminCommmentary">Commentaires</div>
+
+<div class="container-xl" id="adminProfile">Profil</div>
+
+
+</div>
+
+
+
+
+
+
+
+
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <?php 
         $divTab ='';

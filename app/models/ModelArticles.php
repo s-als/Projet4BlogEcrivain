@@ -29,6 +29,10 @@ class ModelArticles extends ModelMain{
         return parent::queryAndfetch($sql);
     }
 
+    public function addChapterToDBB($newChapterTitle, $newChapterContent){
+        $sql = "INSERT INTO ". $this->table ." (title, content) VALUES('$newChapterTitle', '$newChapterContent')";
+        return parent::queryAndfetch($sql);
+    }
 
 
 

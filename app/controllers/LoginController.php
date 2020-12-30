@@ -21,11 +21,11 @@ class LoginController extends Controller
     $this->render('login', $this->errorMsg);
     }
 
-    public function invalidLogin($email, $password) {
+    /*public function invalidLogin($email, $password) {
         $this->loadModel("ModelLogin");
         $user = $this->ModelLogin->getUser($email, $password);
         return $user;
-    }
+    }*/
 
 }
 

@@ -9,10 +9,8 @@ class AdminController extends Controller
 
     public function index(){
 
-        if (isset($_SESSION["userEmail"])) { 
-            if ($_SESSION["userRole"] == 'ADMIN') {
-                $this->showAdminPage();
-            }
+        if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 'ADMIN') { 
+            $this->showAdminPage();
         };
         
 
@@ -54,13 +52,13 @@ class AdminController extends Controller
         $this->loadModel("ModelLogin");
         $user = $this->ModelLogin->getUserByEmail($email);
             if ($user == TRUE) {
-                $pwdOk = password_verify($password, $user['password']);
-                if ($pwdOk == TRUE) {
+                $pwdVerified = password_verify($password, $user['password']);
+                if ($pwdVerified == TRUE) {
                     $_SESSION["userEmail"] = $user['email'];
                     $_SESSION["userRole"] = $user['roles'];
                 }
                 //Erase $user informations:
-                $user = $pwdOk;
+                $user = $pwdVerified;
                 return $user;
             }
         return $user;
@@ -82,4 +80,19 @@ class AdminController extends Controller
         $this->render('admin', compact('articles', 'comments'));
     }
 
+    public function addChapter() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $newChapterTitle = $_POST['title'];
+            $newChapterContent = $_POST['mytextarea'];
+
+            $this->loadModel("ModelArticles");
+            $this->ModelArticles->addChapterToDBB($newChapterTitle, $newChapterContent);
+            
+            header("location: ../admin");
+            exit();
+        }
+    }
 }
+
+

@@ -34,7 +34,7 @@ class ArticlesController extends Controller
         
             $this->ModelComments->addCommentToDBB($name, $comment, $post_id);
             
-            header('Location:' . ROOT . 'chapitres/' . $post_id);
+            header('Location: ../chapitre/' . $post_id);
             exit();
             //echo "<script>location.replace=' .$post_id;</script>";
         }
