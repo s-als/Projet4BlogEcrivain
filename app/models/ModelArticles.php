@@ -34,6 +34,11 @@ class ModelArticles extends ModelMain{
         return parent::queryAndfetch($sql);
     }
 
+    public function editChapterInDBB($id, $newChapterTitle, $newChapterContent){
+        $sql = "UPDATE ". $this->table ." SET title = '$newChapterTitle', content = '$newChapterContent' WHERE id='$id'" ;
+        return parent::queryAndfetch($sql);
+    }
+
 
 
 }

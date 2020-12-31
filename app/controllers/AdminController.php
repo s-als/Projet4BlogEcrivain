@@ -93,6 +93,21 @@ class AdminController extends Controller
             exit();
         }
     }
+
+    public function editChapter() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $id = $_POST['chapterID'];
+            $newChapterTitle = $_POST['title'];
+            $newChapterContent = $_POST['mytextarea'];
+
+            $this->loadModel("ModelArticles");
+            $this->ModelArticles->editChapterInDBB($id, $newChapterTitle, $newChapterContent);
+            var_dump($newChapterTitle);
+            header("location: ../admin");
+            exit();
+        }
+    }
 }
 
 
