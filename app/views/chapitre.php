@@ -33,6 +33,17 @@
                 <?=$comment['name']?>
                 <?=$comment['comment']?>
             </div>
+            <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
+            <button type="submit" formaction="<?php echo $article['id']?>" formmethod="post" >Signaler ce commentaire</button>
+            <form method="post" action="../flagComment">
+                <div>
+                    <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
+                    <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
+                    <input type="submit" onclick="return confirm('Attention vous vous apprêtez à signaler un commentaire. Continuer ?');"/>
+                </div>
+            </form>
+
+
         <?php endforeach; ?>
     </div>
 </div>

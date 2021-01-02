@@ -33,7 +33,8 @@ class ArticlesController extends Controller
             $post_id = $_POST['post_id'];
         
             $this->ModelComments->addCommentToDBB($name, $comment, $post_id);
-            
+            $this->ModelComments->addFlag($id);
+
             header('Location: ../chapitre/' . $post_id);
             exit();
             //echo "<script>location.replace=' .$post_id;</script>";
@@ -46,5 +47,16 @@ class ArticlesController extends Controller
         $this->loadModel("ModelComments");
         $this->ModelComments->addCommentToDBB($name, $comment, $post_id);
         $this->chapitre($post_id);
+      }
+
+      public function flagComment(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id = $_POST['id'];
+            $post_id = $_POST['post_id'];
+            $this->loadModel("ModelComments");
+            $this->ModelComments->addFlag($id);
+            header('Location: chapitre/'. $post_id);
+            exit();
+        }
       }
 }

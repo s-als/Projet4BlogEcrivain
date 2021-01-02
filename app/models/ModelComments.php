@@ -26,4 +26,14 @@ class ModelComments extends ModelMain{
         $sql = "INSERT INTO ". $this->table ." (name, comment, post_id) VALUES('$name', '$comment', '$post_id')";
         return parent::queryAndfetch($sql);
     }
+
+    public function addFlag($id){
+        $sql = "UPDATE ". $this->table ." SET flag = 'yes' WHERE id='$id'" ;
+        return parent::queryAndfetch($sql);
+    }
+
+    public function removeFlag(){
+        $sql = "INSERT INTO ". $this->table ." (flag) VALUES('false')";
+        return parent::queryAndfetch($sql);
+    }
 }
