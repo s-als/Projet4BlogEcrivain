@@ -1,5 +1,6 @@
 // Navbar turn white on scroll
-const navbar = document.getElementById("mainNav");
+/*
+const navbar = document.getElementById("nav");
 window.onscroll = () => {
     if (window.scrollY > 100) {
         navbar.classList.add("navbar-shrink");
@@ -7,6 +8,7 @@ window.onscroll = () => {
         navbar.classList.remove("navbar-shrink");
     }
 };
+*/
 
 
 // Smooth Scrolling

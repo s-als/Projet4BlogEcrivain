@@ -6,44 +6,124 @@
     </div>
 </header>
 
-
-<p><?=$article['content']?></p>
-
-<h2>Commentaires</h2>
-
-<form method="post" action="<?php echo $article['id'] ?>">
-    <div>
-        <label for="name">Auteur</label><br />
-        <input type="text" id="name" name="name" />
-    </div>
-    <div>
-        <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment"></textarea>
-    </div>
-    <div>
-        <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
-        <input type="submit" />
-    </div>
-</form>
-
-<div class="container-xxl">
-    <div class="row">
-        <?php foreach($comments as $comment): ?>
-            <div class="col-lg-4">
-                <?=$comment['name']?>
-                <?=$comment['comment']?>
-            </div>
-            <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
-            <button type="submit" formaction="<?php echo $article['id']?>" formmethod="post" >Signaler ce commentaire</button>
-            <form method="post" action="../flagComment">
-                <div>
-                    <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
-                    <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
-                    <input type="submit" onclick="return confirm('Attention vous vous apprêtez à signaler un commentaire. Continuer ?');"/>
-                </div>
-            </form>
-
-
-        <?php endforeach; ?>
-    </div>
+<div class= "chapterContent container-lg">
+    <h2><?=$article['title']?></h2>
+    <p><?=$article['content']?></p>
 </div>
+
+<div class= "commentaryContent container-lg">
+
+    <h2>Commentaires</h2>
+
+    <form method="post" action="../addComment" class="default-form">
+        <legend>Ajouter un commentaire</legend>
+        <div class="form-group">
+            <label for="name">Nom</label><br />
+            <input type="text" class="form-control" id="name" name="name" />
+        </div>
+        <div class="form-group">
+            <label for="comment">Commentaire</label><br />
+            <textarea class="form-control" id="comment" name="comment"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
+            <button type="submit" name="submit" class="btn btn-primary">Valider</button>
+        </div>
+    </form>
+
+
+    <?php if(isset($_GET['flagOk']))
+            {
+                $message = "Le commentaire a bien été signalé ! Merci.";
+                echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+                ?>
+                <!-- Au cas où je voudrais modifier le style de la fenetre de pop up:
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                <script>
+                    $( function() {
+                        $( "#dialog" ).dialog();
+                    } );
+                </script>
+                
+                <div id="dialog" title="Basic dialog">
+                <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+                </div>
+                -->
+                <?php } ?>
+
+
+    <?php if(isset($_GET['comOk'])){
+                $messageCom = "Le commentaire a été ajouté ! Merci !";
+                echo '<script type="text/javascript">window.alert("'.$messageCom.'");</script>';
+            } ?>
+
+
+    <div class="container-xxl">
+        <div class="row">
+            <?php foreach($comments as $comment): ?>
+                <div class="row row-cols-1 comment">
+                    <div class="col-md-8 commentDiv">
+                        <div class="mb-15">
+                            <h5 class="mb-0"><?=$comment['name']?></h5>
+                            <span class="g-color-gray-dark-v4 g-font-size-12"><?=$comment['create_date']?></span>
+                        </div>
+                        <div class="mb-15 comment-text">
+                            <?=$comment['comment']?>
+                        </div>
+                        <div class="mb-15 comment-flag">
+                        <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
+                            <form method="post" action="../flagComment">
+                                <div>
+                                    <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
+                                    <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
+                                    <input type="submit" onclick="return confirm('Attention vous vous apprêtez à signaler un commentaire. Continuer ?');" value="Signaler ce commentaire"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+<style>
+
+.comment{
+    margin-bottom: 3em;
+}
+
+.commentDiv {
+    box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.78);
+    background-color: #fafafa !important;
+    padding: 2.14286rem !important;
+    margin: auto;
+}
+.comment-text {
+   margin: 1.2em 0; 
+}
+
+.comment-flag {
+   text-align: end; 
+}
+
+.g-font-size-12 {
+    font-size: 0.85714rem !important;
+}
+.g-color-gray-dark-v4 {
+    color: #777 !important;
+}
+
+
+</style>
+
+
+
+
+</div>
+
+

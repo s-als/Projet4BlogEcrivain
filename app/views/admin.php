@@ -1,15 +1,148 @@
+
+
+
+<p style="padding-top: 200px;">
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Profile
+  </a>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Profile
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+  <div class="container-xl" id="adminProfile">Profil
+		<div>Modifier votre nom
+			<form method="post" action="" class="form1">
+			<!-- Email input -->
+				<div class="form-outline mb-4">
+					<input type="text" id="form1name" class="form-control" >
+					<label class="form-label" for="form1name" style="margin-left: 0px;">Prénom et nom</label>
+					<div class="form-notch">
+						<div class="form-notch-leading" style="width: 9px;"></div>
+						<div class="form-notch-middle" style="width: 100px;"></div>
+						<div class="form-notch-trailing"></div>
+					</div>
+				</div>
+			<!-- Submit button -->
+				<button type="submit" class="btn btn-primary btn-block">Valider</button>
+			</form>
+		</div>
+		<div>Modifier votre mot de passe
+			<form method="post" action="" class="form1">
+				<!-- Password input -->
+				<div class="form-outline mb-4">
+					<input type="password" id="form1pwd" class="form-control" />
+					<label class="form-label" for="form1pwd">Mot de passe</label>
+					<div class="form-notch">
+						<div class="form-notch-leading" style="width: 9px;"></div>
+						<div class="form-notch-middle" style="width: 88.8px;"></div>
+						<div class="form-notch-trailing"></div>
+					</div>
+				</div>
+				<!-- Submit button -->
+					<button type="submit" class="btn btn-primary btn-block">Valider</button>
+			</form>
+		</div>
+		<div>Modifier votre description
+			<form method="post" action="" class="form1">
+				<!-- about input -->
+				<div class="form-outline mb-4">
+					<input type="text" id="form1about" class="form-control" />
+					<label class="form-label" for="form1about">Description</label>
+					<div class="form-notch">
+						<div class="form-notch-leading" style="width: 9px;"></div>
+						<div class="form-notch-middle" style="width: 76px;"></div>
+						<div class="form-notch-trailing"></div>
+					</div>
+				</div>
+				<!-- Submit button -->
+					<button type="submit" class="btn btn-primary btn-block">Valider</button>
+			</form>
+		</div>
+		<div>Modifier votre email
+			<form method="post" action="" class="form1">
+				<!-- about input -->
+				<div class="form-outline mb-4">
+					<input type="email" id="form1email" class="form-control" />
+					<label class="form-label" for="form1email">Email</label>
+					<div class="form-notch">
+						<div class="form-notch-leading" style="width: 9px;"></div>
+						<div class="form-notch-middle" style="width: 38px;"></div>
+						<div class="form-notch-trailing"></div>
+					</div>
+				</div>
+				<!-- Submit button -->
+					<button type="submit" class="btn btn-primary btn-block">Valider</button>
+			</form>
+		</div>
+		<div>Modifier votre twitter
+			<form method="post" action="" class="form1">
+				<!-- about input -->
+				<div class="form-outline mb-4">
+					<input type="text" id="form1twitter" class="form-control" />
+					<label class="form-label" for="form1twitter">Twitter</label>
+					<div class="form-notch">
+						<div class="form-notch-leading" style="width: 9px;"></div>
+						<div class="form-notch-middle" style="width: 46px;"></div>
+						<div class="form-notch-trailing"></div>
+					</div>
+				</div>
+				<!-- Submit button -->
+					<button type="submit" class="btn btn-primary btn-block">Valider</button>
+			</form>
+		</div>
+	</div>
+  </div>
+</div>
+
 <div class="container-xl" id="adminMainContainer">
 
-	<div class="container-xl" id="adminEditArticle">Editer un chapitre</div>
-
-	<div class="container-xl" id="adminCommmentary">Commentaires</div>
-
-	<div class="container-xl" id="adminProfile">Profil</div>
+	
 </div>
 
 
+<!--<form class="form1">
+       
+<div class="form-outline mb-4">
+	<input type="email" id="form1Example1" class="form-control">
+	<label class="form-label" for="form1Example1" style="margin-left: 0px;">Email address</label>
+	<div class="form-notch">
+		<div class="form-notch-leading" style="width: 9px;"></div>
+		<div class="form-notch-middle" style="width: 88.8px;"></div>
+		<div class="form-notch-trailing"></div>
+	</div>
+</div>
 
-<ul class="nav nav-tabs" id="myUpperTab" role="tablist">
+  
+  <div class="form-outline mb-4">
+    <input type="password" id="form1Example2" class="form-control" />
+	<label class="form-label" for="form1Example2">Password</label>
+	<div class="form-notch">
+		<div class="form-notch-leading" style="width: 9px;"></div>
+		<div class="form-notch-middle" style="width: 88.8px;"></div>
+		<div class="form-notch-trailing"></div>
+	</div>
+  </div>
+
+   
+  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+</form>
+-->
+
+
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseChptCom" role="button" aria-expanded="false" aria-controls="collapseChptCom">
+    Editer des chapitres et des commentaires
+  </a>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChptCom" aria-expanded="false" aria-controls="collapseChptCom">
+  Editer des chapitres et des commentaires
+  </button>
+</p>
+<div class="collapse" id="collapseChptCom">
+  <div class="card card-body">
+
+  <ul class="nav nav-tabs" id="myUpperTab" role="tablist">
 	<li class="nav-item" role="presentation">
     	<a class="nav-link active" id="chapters-tab" data-bs-toggle="tab" href="#chapters" role="tab" aria-controls="chapters" aria-selected="true">Chapitres</a>
   	</li>
@@ -146,3 +279,15 @@
 		</div>
 	</div>
 </div>
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,89 @@
+:root {
+  --main-btn-color: #526a80;
+}
+
+
+
 body {
   letter-spacing: 0.0625em;
+}
+
+.anchor {
+  padding-top: 50px;
+  border-radius: 2em;
+}
+
+#about .anchor {
+  background-color: black;
+}
+
+#navbarNav {
+  font-size : 1.2em;
+  font-weight: bold;
+}
+
+.navbar {
+  margin: 0 50px 0 50px;
+}
+
+
+.margeAndRounded {
+  margin: 50px;
+  border-radius: 2em;
+}
+
+.card {
+  border-radius: 1.5em;
+}
+
+#content{
+  background-color: #f8f9fa !important;
+}
+
+#allChapters{
+  padding: 4em;
+}
+
+
+
+#allChapters a{
+  text-decoration: none;
+  color: black;
+  font-size: 1.1em;
+}
+
+#allChapters h5 {
+  text-align: center;
+  text-decoration: underline overline #18404D;
+  text-decoration-thickness: 0.2rem;
+  padding-bottom: 2em;
+}
+#allChapters p {
+  margin: 0 1.2em;
+}
+
+
+.card-footer:last-child {
+  border-radius: 0 0 calc(2rem - 9px) calc(2rem - 9px);
+}
+
+
+.chapterContent {
+  padding: 4em 0;
+  text-align: justify;
+  text-justify: distribute;
+}
+
+.chapterContent p {
+  padding-top: 3rem;
+}
+
+.commentaryContent {
+  padding: 0;
+}
+
+.commentaryContent h2, .chapterContent h2 {
+  border-bottom: solid;
 }
 
 #mainNav {
@@ -52,6 +136,10 @@ body {
   #mainNav .nav-link:active {
     color: #fff;
   }
+
+  .navbar-shrink {
+    background-color: #fff;
+  }
   #mainNav.navbar-shrink {
     background-color: #fff;
   }
@@ -87,11 +175,12 @@ body {
 
 .btn-lg {
   padding: 1.25rem 2rem;
-  
+  background-color: var(--main-btn-color);
 }
 
 .btn-sm {
   padding: .65rem 1rem;
+  background-color: var(--main-btn-color);
 }
 
 
@@ -99,13 +188,13 @@ body {
   display: none;
   position: fixed;
   bottom: 20px;
-  right: 30px;
+  right: 5px;
   z-index: 99;
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: #0000001c;
-  color: white;
+  background-color: #329f61;
+  color: snow;
   cursor: pointer;
   padding: 10px;
   border-radius: 4px;
@@ -168,8 +257,7 @@ body {
 .chaptershead {
   position: relative;
   width: 100%;
-  height: auto;
-  min-height: 35rem;
+  height: 20rem;
   padding: 15rem 0;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/public/images/alaska4.jpg");
   background-position: center;
@@ -192,11 +280,12 @@ body {
 
 
 .about-section {
-  padding-top: 10rem;
-  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+  padding-top: 6rem;
+  /*background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);*/
 }
-.about-section p {
-  margin-bottom: 5rem;
+
+#about img {
+  height: 400px;
 }
 
 .projects-section {
@@ -205,10 +294,17 @@ body {
 .projects-section .featured-text {
   padding: 2rem;
 }
+
+#project img {
+  height: 25em;
+}
+
+
 @media (min-width: 992px) {
   .projects-section .featured-text {
-    padding: 0 0 0 2rem;
-    border-left: 0.5rem solid #64a19d;
+    /*padding: 0 0 0 2rem;
+    border-left: 0.5rem solid #64a19d;*/
+    border-right: 0.5rem solid #526a80;
   }
 }
 .projects-section .project-text {
@@ -295,14 +391,14 @@ body {
 
 /*Login Form*/
 
-#loginForm {
+.default-form {
   max-width: 500px;
   text-align: center;
   margin: auto;
   padding: 50px;
 }
 
-#loginForm button {
+.default-form button {
   margin: 2em;
 }
 
@@ -322,6 +418,469 @@ body {
   padding-top: 2em;
 }
 
-#adminMainContainer{
-  padding-top: 200px;
+
+
+
+
+
+/*formulaires*/
+
+.form1{
+  max-width: 600px;
+  margin: auto;
 }
+
+
+.form-outline {
+position:relative;
+}
+
+.form-outline .form-control {
+min-height:auto;
+padding:.33em .75em;
+border:0;
+background:transparent;
+-webkit-transition:all .2s linear;
+transition:all .2s linear
+}
+
+.form-outline .form-control~.form-label {
+position:absolute;
+top:0;
+left:.75rem;
+padding-top:.37rem;
+pointer-events:none;
+-webkit-transform-origin:0 0;
+transform-origin:0 0;
+-webkit-transition:all .2s ease-out;
+transition:all .2s ease-out;
+color:rgba(0,0,0,.6);
+margin-bottom:0
+}
+
+.form-outline .form-control~.form-notch {
+display:-webkit-box;
+display:-ms-flexbox;
+display:flex;
+position:absolute;
+left:0;
+top:0;
+width:100%;
+max-width:100%;
+height:100%;
+text-align:left;
+pointer-events:none
+}
+
+.form-outline .form-control~.form-notch div {
+pointer-events:none;
+border:1px solid #bdbdbd;
+-webkit-box-sizing:border-box;
+box-sizing:border-box;
+background:transparent
+}
+
+.form-outline .form-control~.form-notch .form-notch-leading {
+left:0;
+top:0;
+height:100%;
+width:.5rem;
+border-right:none;
+border-radius:.25rem 0 0 .25rem
+}
+
+.form-outline .form-control~.form-notch .form-notch-middle {
+-webkit-box-flex:0;
+-ms-flex:0 0 auto;
+flex:0 0 auto;
+width:auto;
+max-width:calc(100% - 1rem);
+height:100%;
+border-right:none;
+border-left:none
+}
+
+.form-outline .form-control~.form-notch .form-notch-trailing {
+-webkit-box-flex:1;
+-ms-flex-positive:1;
+flex-grow:1;
+height:100%;
+border-left:none;
+border-radius:0 .25rem .25rem 0
+}
+
+.form-outline .form-control:not(.placeholder-active)::-webkit-input-placeholder {
+opacity:0
+}
+
+.form-outline .form-control:not(.placeholder-active)::-moz-placeholder {
+opacity:0
+}
+
+.form-outline .form-control:not(.placeholder-active):-ms-input-placeholder {
+opacity:0
+}
+
+.form-outline .form-control:not(.placeholder-active)::-ms-input-placeholder {
+opacity:0
+}
+
+.form-outline .form-control:not(.placeholder-active)::placeholder {
+opacity:0
+}
+
+.form-outline .form-control.active::-webkit-input-placeholder,
+.form-outline .form-control:focus::-webkit-input-placeholder {
+opacity:1
+}
+
+.form-outline .form-control.active::-moz-placeholder,
+.form-outline .form-control:focus::-moz-placeholder {
+opacity:1
+}
+
+.form-outline .form-control.active:-ms-input-placeholder,
+.form-outline .form-control:focus:-ms-input-placeholder {
+opacity:1
+}
+
+.form-outline .form-control.active::-ms-input-placeholder,
+.form-outline .form-control:focus::-ms-input-placeholder {
+opacity:1
+}
+
+.form-outline .form-control.active::placeholder,
+.form-outline .form-control:focus::placeholder {
+opacity:1
+}
+
+.form-outline .form-control:focus {
+-webkit-box-shadow:none!important;
+box-shadow:none!important
+}
+
+.form-outline .form-control.active~.form-label,
+.form-outline .form-control:focus~.form-label {
+-webkit-transform:translateY(-1rem) translateY(.1rem) scale(.8);
+transform:translateY(-1rem) translateY(.1rem) scale(.8)
+}
+
+.form-outline .form-control:focus~.form-label {
+color:#1266f1
+}
+
+.form-outline .form-control.active~.form-notch .form-notch-middle,
+.form-outline .form-control:focus~.form-notch .form-notch-middle {
+border-top:none;
+border-right:none;
+border-left:none;
+-webkit-transition:all .2s linear;
+transition:all .2s linear
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-middle {
+border-bottom:.125rem solid;
+border-color:#1266f1
+}
+
+.form-outline .form-control.active~.form-notch .form-notch-leading,
+.form-outline .form-control:focus~.form-notch .form-notch-leading {
+border-right:none;
+-webkit-transition:all .2s linear;
+transition:all .2s linear
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-leading {
+border-top:.125rem solid #1266f1;
+border-bottom:.125rem solid #1266f1;
+border-left:.125rem solid #1266f1
+}
+
+.form-outline .form-control.active~.form-notch .form-notch-trailing,
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+border-left:none;
+-webkit-transition:all .2s linear;
+transition:all .2s linear
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+border-color:currentcolor currentcolor currentcolor #1266f1;
+border-bottom:.125rem solid #1266f1;
+border-right:.125rem solid #1266f1;
+border-top:.125rem solid #1266f1
+}
+
+
+
+
+
+/*.form-control {
+  min-height:auto;
+  padding-top:5.28px;
+  padding-bottom:3.28px
+ }
+
+ .form-control,
+ .form-control:focus {
+  -webkit-transition:all .1s linear;
+  transition:all .1s linear
+ }
+ .form-control:focus {
+  -webkit-box-shadow:none;
+  box-shadow:none;
+  border-color:#1266f1;
+  -webkit-box-shadow:inset 0 0 0 1px #1266f1;
+  box-shadow:inset 0 0 0 1px #1266f1
+ }
+ .form-control.form-control-sm {
+  font-size:.775rem;
+  line-height:1.5
+ }
+ .form-control.form-control-lg {
+  line-height:2.15;
+  border-radius:.25rem
+ }
+ .form-outline {
+  position:relative;
+ }
+
+ /*ok
+ .form-outline .form-control {
+  min-height:auto;
+  padding:.33em .75em;
+  border:0;
+  background:transparent;
+  -webkit-transition:all .2s linear;
+  transition:all .2s linear
+ }
+ /*ok
+ .form-outline .form-control~.form-label {
+  position:absolute;
+  top:0;
+  left:.75rem;
+  padding-top:.37rem;
+  pointer-events:none;
+  -webkit-transform-origin:0 0;
+  transform-origin:0 0;
+  -webkit-transition:all .2s ease-out;
+  transition:all .2s ease-out;
+  color:rgba(0,0,0,.6);
+  margin-bottom:0
+ }
+ /*ok
+ .form-outline .form-control~.form-notch {
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  max-width:100%;
+  height:100%;
+  text-align:left;
+  pointer-events:none
+ }
+ /*ok
+ .form-outline .form-control~.form-notch div {
+  pointer-events:none;
+  border:1px solid #bdbdbd;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  background:transparent
+ }
+ /*ok
+ .form-outline .form-control~.form-notch .form-notch-leading {
+  left:0;
+  top:0;
+  height:100%;
+  width:.5rem;
+  border-right:none;
+  border-radius:.25rem 0 0 .25rem
+ }
+ /*ok
+ .form-outline .form-control~.form-notch .form-notch-middle {
+  -webkit-box-flex:0;
+  -ms-flex:0 0 auto;
+  flex:0 0 auto;
+  width:auto;
+  max-width:calc(100% - 1rem);
+  height:100%;
+  border-right:none;
+  border-left:none
+ }
+ /*ok
+ .form-outline .form-control~.form-notch .form-notch-trailing {
+  -webkit-box-flex:1;
+  -ms-flex-positive:1;
+  flex-grow:1;
+  height:100%;
+  border-left:none;
+  border-radius:0 .25rem .25rem 0
+ }
+ /*ok
+ .form-outline .form-control:not(.placeholder-active)::-webkit-input-placeholder {
+  opacity:0
+ }
+ /*ok
+ .form-outline .form-control:not(.placeholder-active)::-moz-placeholder {
+  opacity:0
+ }
+ /*ok
+ .form-outline .form-control:not(.placeholder-active):-ms-input-placeholder {
+  opacity:0
+ }
+ /*ok
+ .form-outline .form-control:not(.placeholder-active)::-ms-input-placeholder {
+  opacity:0
+ }
+ /*ok
+ .form-outline .form-control:not(.placeholder-active)::placeholder {
+  opacity:0
+ }
+ /*ok
+ .form-outline .form-control.active::-webkit-input-placeholder,
+ .form-outline .form-control:focus::-webkit-input-placeholder {
+  opacity:1
+ }
+ /*ok
+ .form-outline .form-control.active::-moz-placeholder,
+ .form-outline .form-control:focus::-moz-placeholder {
+  opacity:1
+ }
+ /*ok
+ .form-outline .form-control.active:-ms-input-placeholder,
+ .form-outline .form-control:focus:-ms-input-placeholder {
+  opacity:1
+ }
+ /*ok
+ .form-outline .form-control.active::-ms-input-placeholder,
+ .form-outline .form-control:focus::-ms-input-placeholder {
+  opacity:1
+ }
+ /*ok
+ .form-outline .form-control.active::placeholder,
+ .form-outline .form-control:focus::placeholder {
+  opacity:1
+ }
+
+ /*ok
+ .form-outline .form-control:focus {
+  -webkit-box-shadow:none!important;
+  box-shadow:none!important
+ }
+ /*ok
+ .form-outline .form-control.active~.form-label,
+ .form-outline .form-control:focus~.form-label {
+  -webkit-transform:translateY(-1rem) translateY(.1rem) scale(.8);
+  transform:translateY(-1rem) translateY(.1rem) scale(.8)
+ }
+ /*ok
+ .form-outline .form-control:focus~.form-label {
+  color:#1266f1
+ }
+ /*ok
+ .form-outline .form-control.active~.form-notch .form-notch-middle,
+ .form-outline .form-control:focus~.form-notch .form-notch-middle {
+  border-top:none;
+  border-right:none;
+  border-left:none;
+  -webkit-transition:all .2s linear;
+  transition:all .2s linear
+ }
+ /*ok
+ .form-outline .form-control:focus~.form-notch .form-notch-middle {
+  border-bottom:.125rem solid;
+  border-color:#1266f1
+ }
+ /*ok
+ .form-outline .form-control.active~.form-notch .form-notch-leading,
+ .form-outline .form-control:focus~.form-notch .form-notch-leading {
+  border-right:none;
+  -webkit-transition:all .2s linear;
+  transition:all .2s linear
+ }
+ /*ok
+ .form-outline .form-control:focus~.form-notch .form-notch-leading {
+  border-top:.125rem solid #1266f1;
+  border-bottom:.125rem solid #1266f1;
+  border-left:.125rem solid #1266f1
+ }
+ /*ok
+ .form-outline .form-control.active~.form-notch .form-notch-trailing,
+ .form-outline .form-control:focus~.form-notch .form-notch-trailing {
+  border-left:none;
+  -webkit-transition:all .2s linear;
+  transition:all .2s linear
+ }
+ /*ok
+ .form-outline .form-control:focus~.form-notch .form-notch-trailing {
+  border-color:currentcolor currentcolor currentcolor #1266f1;
+  border-bottom:.125rem solid #1266f1;
+  border-right:.125rem solid #1266f1;
+  border-top:.125rem solid #1266f1
+ }
+ 
+ .form-outline .form-control.disabled,
+ .form-outline .form-control:disabled,
+ .form-outline .form-control[readonly] {
+  background-color:#e9ecef
+ }
+ .form-outline .form-control.form-control-lg {
+  font-size:1rem;
+  line-height:2.15;
+  padding-left:.75em;
+  padding-right:.75em
+ }
+ .form-outline .form-control.form-control-lg~.form-label {
+  padding-top:.7rem
+ }
+ .form-outline .form-control.form-control-lg.active~.form-label,
+ .form-outline .form-control.form-control-lg:focus~.form-label {
+  -webkit-transform:translateY(-1.25rem) translateY(.1rem) scale(.8);
+  transform:translateY(-1.25rem) translateY(.1rem) scale(.8)
+ }
+ .form-outline .form-control.form-control-sm {
+  padding:.43em .99em .35em;
+  font-size:.775rem;
+  line-height:1.6
+ }
+ .form-outline .form-control.form-control-sm~.form-label {
+  padding-top:.33rem;
+  font-size:.775rem
+ }
+ .form-outline .form-control.form-control-sm.active~.form-label,
+ .form-outline .form-control.form-control-sm:focus~.form-label {
+  -webkit-transform:translateY(-.85rem) translateY(.1rem) scale(.8);
+  transform:translateY(-.85rem) translateY(.1rem) scale(.8)
+ }
+ .form-outline.form-white .form-control {
+  color:#fff
+ }
+ .form-outline.form-white .form-control~.form-label {
+  color:#fbfbfb
+ }
+ .form-outline.form-white .form-control~.form-notch div {
+  border-color:#fbfbfb
+ }
+ .form-outline.form-white .form-control:focus~.form-label {
+  color:#fff
+ }
+ .form-outline.form-white .form-control:focus~.form-notch .form-notch-middle {
+  border-color:#fff
+ }
+ .form-outline.form-white .form-control:focus~.form-notch .form-notch-leading {
+  border-top:.125rem solid #fff;
+  border-bottom:.125rem solid #fff;
+  border-left:.125rem solid #fff
+ }
+ .form-outline.form-white .form-control:focus~.form-notch .form-notch-trailing {
+  border-color:#fff
+ }
+
+*/
+
+
+
+
+

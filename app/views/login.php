@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="loginNav">
     <div class="container">
         <a class="navbar-brand" href="/index.php#page-top">Blog de Jean Forteroche</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,7 +31,7 @@
 </div>
 
 
-<form action="admin" method="post" name="login" id="loginForm">
+<form action="admin" method="post" name="login" class="default-form">
 
     <div class="form-group">
         <label for="emailForm">Adresse Email</label>

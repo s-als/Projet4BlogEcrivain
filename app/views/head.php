@@ -25,5 +25,8 @@
 
    <!--<script src="https://cdn.tiny.cloud/1/cfqz2yrpjyxr5isitafno42pssq3wkmp616iwb2b6dcct7xl/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>-->
 
+   <!--jquery-->
+   <script src="/public/js/jquery-3.5.1.js"></script>
+
     
 </head>
