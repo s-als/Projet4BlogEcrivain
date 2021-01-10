@@ -1,11 +1,39 @@
+/*************************************************
+----------------------POLICES---------------------
+*************************************************/
+
+/*@font-face {
+  font-family: 'RobotoBoldItalic';
+  src: url('fonts/RobotoBoldItalic.ttf') format('truetype');
+}*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/*************************************************
+----------------------VARIABLES-------------------
+*************************************************/
+
 :root {
   --main-btn-color: #526a80;
 }
 
 
+/*************************************************
+----------------------GLOBAL----------------------
+*************************************************/
 
 body {
   letter-spacing: 0.0625em;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+i {
+	margin-right: 10px;
 }
 
 .anchor {
@@ -13,9 +41,67 @@ body {
   border-radius: 2em;
 }
 
-#about .anchor {
-  background-color: black;
+#BackToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 5px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #329f61;
+  color: snow;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
 }
+
+#BackToTopBtn:hover {
+  background-color: #555;
+}
+
+.bg-black {
+  background-color: #000000 !important;
+}
+
+.btn {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  font-size: 80%;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border: 0;
+}
+
+.btn-lg {
+  padding: 1.25rem 2rem;
+  background-color: var(--main-btn-color);
+}
+
+.btn-sm {
+  padding: .65rem 1rem;
+  background-color: var(--main-btn-color);
+}
+
+
+#content{
+  background-color: #f8f9fa !important;
+}
+
+.card {
+  border-radius: 1.5em;
+}
+
+.margeAndRounded {
+  margin: 50px;
+  border-radius: 2em;
+}
+
+
+/*************************************************
+----------------------NAVBAR----------------------
+*************************************************/
 
 #navbarNav {
   font-size : 1.2em;
@@ -24,27 +110,311 @@ body {
 
 .navbar {
   margin: 0 50px 0 50px;
+  border-radius: 0 0 1.5em 1.5em;
 }
 
-
-.margeAndRounded {
-  margin: 50px;
-  border-radius: 2em;
+#navMarg{
+  margin: auto;
 }
 
-.card {
-  border-radius: 1.5em;
+.navbar-logo{
+padding: 15px;
+color: #fff;
 }
 
-#content{
+.navbar-mainbg{
+  background-color: #212122;
+/*background-color: #5161ce;*/
+padding: 0px;
+}
+
+#navbarSupportedContent{
+overflow: hidden;
+position: relative;
+}
+
+#navbarSupportedContent ul{
+padding: 0px;
+margin: 0px;
+}
+
+#navbarSupportedContent ul li a i{
+margin-right: 10px;
+}
+
+#navbarSupportedContent li {
+list-style-type: none;
+float: left;
+}
+
+#navbarSupportedContent ul li a{
+color: rgba(255,255,255,0.80);
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 20px 20px;
+  transition-duration:0.6s;
+transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+}
+
+#navbarSupportedContent>ul>li.active>a{
+color: #5161ce;
+background-color: transparent;
+transition: all 0.7s;
+}
+
+#navbarSupportedContent a:not(:only-child):after {
+content: "\f105";
+position: absolute;
+right: 20px;
+top: 10px;
+font-size: 14px;
+font-family: "Font Awesome 5 Free";
+display: inline-block;
+padding-right: 3px;
+vertical-align: middle;
+font-weight: 900;
+transition: 0.5s;
+}
+
+#navbarSupportedContent .active>a:not(:only-child):after {
+transform: rotate(90deg);
+}
+
+.hori-selector{
+display:inline-block;
+position:absolute;
+height: 100%;
+top: 0px;
+left: 0px;
+transition-duration:0.6s;
+transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+/*background-color: #fff;*/
   background-color: #f8f9fa !important;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+margin-top: 10px;
 }
+
+.hori-selector .right,
+.hori-selector .left{
+position: absolute;
+width: 25px;
+height: 25px;
+/*background-color: #fff;*/
+  background-color: #f8f9fa !important;
+bottom: 10px;
+}
+
+.hori-selector .right{
+right: -25px;
+}
+
+.hori-selector .left{
+left: -25px;
+}
+
+.hori-selector .right:before,
+.hori-selector .left:before{
+content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /*background-color: #5161ce;*/
+  background-color: #212122;
+}
+
+.hori-selector .right:before{
+bottom: 0;
+  right: -25px;
+}
+
+.hori-selector .left:before{
+bottom: 0;
+  left: -25px;
+}
+
+@media (max-width: 991px){
+  #navbarSupportedContent ul li a{
+    padding: 12px 30px;
+  }
+
+  .hori-selector{
+    margin-top: 0px;
+    margin-left: 10px;
+    border-radius: 0;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+  }
+
+  .hori-selector .left,
+  .hori-selector .right{
+    right: 10px;
+  }
+
+  .hori-selector .left{
+    top: -25px;
+    left: auto;
+  }
+
+  .hori-selector .right{
+    bottom: -25px;
+  }
+
+  .hori-selector .left:before{
+    left: -25px;
+    top: -25px;
+  }
+
+  .hori-selector .right:before{
+    bottom: -25px;
+    left: -25px;
+  }
+}
+
+
+/*************************************************
+---------------------HEADER-----------------------
+*************************************************/
+
+.masthead {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/public/images/alaska2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+.masthead h1 {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.8rem;
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.masthead h2 {
+  max-width: 20rem;
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .masthead h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+}
+@media (min-width: 992px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+  .masthead h1 {
+    font-size: 6.5rem;
+    line-height: 6.5rem;
+    letter-spacing: 0.8rem;
+  }
+  .masthead h2 {
+    max-width: 30rem;
+    font-size: 1.25rem;
+  }
+}
+
+.chaptershead {
+  position: relative;
+  width: 100%;
+  height: 20rem;
+  padding: 15rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/public/images/alaska4.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.chaptershead h1 {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 3.5rem;
+  letter-spacing: 0.8rem;
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+
+
+
+/*************************************************
+------------------ABOUT SECTION-------------------
+*************************************************/
+
+#about .anchor {
+  background-color: black;
+}
+
+.about-section {
+  padding-top: 6rem;
+  /*background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);*/
+}
+
+#about img {
+  height: 400px;
+}
+
+
+/*************************************************
+----------------PROJECTS SECTION------------------
+*************************************************/
+
+.projects-section {
+  padding: 10rem 0;
+}
+.projects-section .featured-text {
+  padding: 2rem;
+}
+
+#project img {
+  height: 25em;
+}
+
+
+@media (min-width: 992px) {
+  .projects-section .featured-text {
+    /*padding: 0 0 0 2rem;
+    border-left: 0.5rem solid #64a19d;*/
+    border-right: 0.5rem solid #526a80;
+  }
+}
+.projects-section .project-text {
+  padding: 3rem;
+  font-size: 90%;
+}
+@media (min-width: 992px) {
+  .projects-section .project-text {
+    padding: 5rem;
+  }
+  .projects-section .project-text hr {
+    border-color: #64a19d;
+    border-width: 0.25rem;
+    width: 30%;
+  }
+}
+
+
+/*************************************************
+----------------ALL CHAPTERS PAGE-----------------
+*************************************************/
 
 #allChapters{
   padding: 4em;
 }
-
-
 
 #allChapters a{
   text-decoration: none;
@@ -63,15 +433,15 @@ body {
 }
 
 
-.card-footer:last-child {
-  border-radius: 0 0 calc(2rem - 9px) calc(2rem - 9px);
-}
-
+/*************************************************
+---------------SINGLE CHAPTER PAGE----------------
+*************************************************/
 
 .chapterContent {
-  padding: 4em 0;
+  padding: 4em;
   text-align: justify;
   text-justify: distribute;
+  background-color: #fdfdfd;
 }
 
 .chapterContent p {
@@ -79,13 +449,28 @@ body {
 }
 
 .commentaryContent {
-  padding: 0;
+  padding: 4em;
+  background-color: #fdfdfd;
 }
 
 .commentaryContent h2, .chapterContent h2 {
   border-bottom: solid;
 }
 
+
+/*************************************************
+---------------------FOOTER-----------------------
+*************************************************/
+
+.card-footer:last-child {
+  border-radius: 0 0 calc(2rem - 9px) calc(2rem - 9px);
+}
+
+.footer {
+  padding: 5rem 0;
+}
+
+/*
 #mainNav {
   min-height: 3.5rem;
   background-color: #fff;
@@ -162,165 +547,13 @@ body {
     outline: none;
     border-bottom: 0.25rem solid #64a19d;
   }
-}
-
-.btn {
-  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-  font-size: 80%;
-  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  text-transform: uppercase;
-  letter-spacing: 0.15rem;
-  border: 0;
-}
-
-.btn-lg {
-  padding: 1.25rem 2rem;
-  background-color: var(--main-btn-color);
-}
-
-.btn-sm {
-  padding: .65rem 1rem;
-  background-color: var(--main-btn-color);
-}
-
-
-#BackToTopBtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 5px;
-  z-index: 99;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color: #329f61;
-  color: snow;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-#BackToTopBtn:hover {
-  background-color: #555;
-}
+}*/
 
 
 
-.masthead {
-  position: relative;
-  width: 100%;
-  height: auto;
-  min-height: 35rem;
-  padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/public/images/alaska2.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-}
-.masthead h1 {
-  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.8rem;
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
-}
-.masthead h2 {
-  max-width: 20rem;
-  font-size: 1rem;
-}
-@media (min-width: 768px) {
-  .masthead h1 {
-    font-size: 4rem;
-    line-height: 4rem;
-  }
-}
-@media (min-width: 992px) {
-  .masthead {
-    height: 100vh;
-    padding: 0;
-  }
-  .masthead h1 {
-    font-size: 6.5rem;
-    line-height: 6.5rem;
-    letter-spacing: 0.8rem;
-  }
-  .masthead h2 {
-    max-width: 30rem;
-    font-size: 1.25rem;
-  }
-}
-
-.chaptershead {
-  position: relative;
-  width: 100%;
-  height: 20rem;
-  padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/public/images/alaska4.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-}
-
-.chaptershead h1 {
-  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.8rem;
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-          background-clip: text;
-}
-
-
-
-.about-section {
-  padding-top: 6rem;
-  /*background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);*/
-}
-
-#about img {
-  height: 400px;
-}
-
-.projects-section {
-  padding: 10rem 0;
-}
-.projects-section .featured-text {
-  padding: 2rem;
-}
-
-#project img {
-  height: 25em;
-}
-
-
-@media (min-width: 992px) {
-  .projects-section .featured-text {
-    /*padding: 0 0 0 2rem;
-    border-left: 0.5rem solid #64a19d;*/
-    border-right: 0.5rem solid #526a80;
-  }
-}
-.projects-section .project-text {
-  padding: 3rem;
-  font-size: 90%;
-}
-@media (min-width: 992px) {
-  .projects-section .project-text {
-    padding: 5rem;
-  }
-  .projects-section .project-text hr {
-    border-color: #64a19d;
-    border-width: 0.25rem;
-    width: 30%;
-  }
-}
+/*************************************************
+-----------------SIGNUP SECTION-------------------
+*************************************************/
 
 .signup-section {
   padding: 10rem 0;
@@ -330,38 +563,38 @@ body {
   background-attachment: scroll;
   background-size: cover;
 }
-.signup-section .form-inline input {
-  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-  padding: 1.25rem 2rem;
-  height: auto;
-  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 80%;
-  text-transform: uppercase;
-  letter-spacing: 0.15rem;
-  border: 0;
-}
+
+
+/*************************************************
+-----------------CONTACT SECTION------------------
+*************************************************/
 
 .contact-section {
   padding-top: 5rem;
 }
+
 .contact-section .card {
   border: 0;
   border-bottom: 0.25rem solid #64a19d;
 }
+
 .contact-section .card h4 {
   font-size: 0.8rem;
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-transform: uppercase;
   letter-spacing: 0.15rem;
 }
+
 .contact-section .card hr {
   border-color: #64a19d;
   border-width: 0.25rem;
   width: 3rem;
 }
+
 .contact-section .social {
   margin-top: 5rem;
 }
+
 .contact-section .social a {
   text-align: center;
   height: 3rem;
@@ -371,25 +604,53 @@ body {
   line-height: 3rem;
   color: rgba(255, 255, 255, 0.3);
 }
+
 .contact-section .social a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
+
 .contact-section .social a:active {
   color: #fff;
 }
 
-.footer {
-  padding: 5rem 0;
+
+/*************************************************
+-------------------LOGIN PAGE---------------------
+*************************************************/
+
+#loginNav{
+  padding: 50px;
+}
+
+#loginNav .container{
+  margin: auto;
+  width: auto;
+}
+
+#loginContent {
+  padding-top: 4em;
+}
+
+#msgLogin p {
+  margin: auto;
+  font-size: 1.5em;
+  text-align: center;
+  padding-top: 2em;
+}
+
+#passwordForm {
+  margin-bottom: 1.5em;
+}
+
+.help-block {
+  color: red;
+  font-size: 1.5em;
 }
 
 
-.bg-black {
-  background-color: #000000 !important;
-}
-
-
-
-/*Login Form*/
+/*************************************************
+---------------------FORMS------------------------
+*************************************************/
 
 .default-form {
   max-width: 500px;
@@ -402,34 +663,11 @@ body {
   margin: 2em;
 }
 
-#loginNav{
-  padding: 50px;
-}
-
-#loginNav .container{
-  margin: auto;
-  width: auto;
-}
-
-#msgLogin p {
-  margin: auto;
-  font-size: 1.5em;
-  text-align: center;
-  padding-top: 2em;
-}
-
-
-
-
-
-
-/*formulaires*/
 
 .form1{
   max-width: 600px;
   margin: auto;
 }
-
 
 .form-outline {
 position:relative;

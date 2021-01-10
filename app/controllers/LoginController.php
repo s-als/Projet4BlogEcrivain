@@ -12,7 +12,7 @@ class LoginController extends Controller
             if ($_GET["error"] == "emptyInput") {
                 $this->errorMsg = ['errMsg' => "Veuillez renseigner tous les champs."];
             } else if ($_GET["error"] == "invalidLogin") {
-                $this->errorMsg = ['errMsg' => "L'email et / ou le mot de passe sont incorrectes."];
+                $this->errorMsg = ['errMsg' => "L'email et / ou le mot de passe sont incorrects."];
 
             } 
             

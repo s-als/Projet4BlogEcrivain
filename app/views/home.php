@@ -14,7 +14,10 @@
                     <a class="btn btn-secondary btn-sm" href="#projects">Mes roles</a>
                 </div>
             </div>
-            <img class="img-fluid" src="public/images/book-picture1.png" alt="" />
+            <figure>
+            <img class="img-fluid" src="public/images/book-picture1.png" alt="3 livres les uns sur les autres" />
+            </figure>
+            
         </div>
     </div>
 </section>
@@ -24,7 +27,7 @@
         <div class="container">
             <!-- Featured Project Row-->
             <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="public/images/alaska4.jpg" alt="" /></div>
+                <div class="col-xl-8 col-lg-7"><figure><img class="img-fluid mb-3 mb-lg-0" src="public/images/alaska4.jpg" alt="un train pret à partir pour l'Alaska" /></figure></div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Un billet simple pour l'Alaska</h4>
