@@ -86,7 +86,7 @@ i {
 
 
 #content{
-  background-color: #f8f9fa !important;
+  background-color: #f8f9fa;
 }
 
 .card {
@@ -96,6 +96,11 @@ i {
 .margeAndRounded {
   margin: 50px;
   border-radius: 2em;
+}
+
+.dark-mode {
+  background-color: #181b1e !important;
+  color: white;
 }
 
 
@@ -649,8 +654,27 @@ bottom: 0;
 
 
 /*************************************************
+-------------------ADMIN PAGE---------------------
+*************************************************/
+
+.tox-tinymce {
+  min-height: 600px;
+}
+
+
+
+
+
+
+/*************************************************
 ---------------------FORMS------------------------
 *************************************************/
+
+#errorMsgPwd {
+  display: none;
+  color: red;
+}
+
 
 .default-form {
   max-width: 500px;

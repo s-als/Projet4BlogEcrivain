@@ -9,30 +9,26 @@ class AdminController extends Controller
 
     public function index(){
 
-        if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 'ADMIN') { 
+        if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 'ADMIN') {
             $this->showAdminPage();
         };
         
-
         if (isset($_POST["submit"])) {
+            $email = $_POST["email"];
+            $password = $_POST["password"];
+            //$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        //$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+            if (empty($email) || empty($password)) {
+                header("location: login?error=emptyInput");
+                exit();
+            } 
 
-        if (empty($email) || empty($password)) {
-            header("location: login?error=emptyInput");
-            exit();
-        } 
-
-
-        if ($this->checkEmailAndPwd($email, $password) == FALSE) {
-            header("location: login?error=invalidLogin");
-            exit();
-        }
-        
-        $this->showAdminPage();
-        
+            if ($this->checkEmailAndPwd($email, $password) == FALSE) {
+                header("location: login?error=invalidLogin");
+                exit();
+            }
+            
+            $this->showAdminPage();
         }
         else {
             header("location: login");
@@ -56,6 +52,9 @@ class AdminController extends Controller
                 if ($pwdVerified == TRUE) {
                     $_SESSION["userEmail"] = $user['email'];
                     $_SESSION["userRole"] = $user['roles'];
+                    $_SESSION["userID"] = $user['id'];
+                    $_SESSION["userName"] = $user['name'];
+                    $_SESSION["about"] = $user['about'];
                 }
                 //Erase $user informations:
                 $user = $pwdVerified;
@@ -103,11 +102,50 @@ class AdminController extends Controller
 
             $this->loadModel("ModelArticles");
             $this->ModelArticles->editChapterInDBB($id, $newChapterTitle, $newChapterContent);
-            var_dump($newChapterTitle);
+
             header("location: ../admin");
             exit();
         }
     }
+
+    public function modifyProfile() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $userID = $_SESSION["userID"];
+            $this->loadModel("ModelLogin");
+
+            if ($_POST['modifyType'] == "modifyName") {
+                $newName = $_POST['newName'];
+                $this->ModelLogin->changeName($newName, $userID);
+                $_SESSION["userName"] = $newName; 
+
+            } else if ($_POST['modifyType'] == "modifyEmail") {
+                $newEmail = $_POST['newEmail'];
+                $this->ModelLogin->changeEmail($newEmail, $userID);
+                $_SESSION["userEmail"] = $newEmail;  
+
+            } else if ($_POST['modifyType'] == "modifyPwd") {
+                $newPwd = $_POST['newPwd'];
+                $this->ModelLogin->changePwd($newPwd, $userID);
+
+            } else if ($_POST['modifyType'] == "modifyAbout") {
+                $newAbout = $_POST['newAbout'];
+                $this->ModelLogin->changeAbout($newAbout, $userID);
+                $_SESSION["about"] = $newAbout;
+
+            } else if ($_POST['modifyType'] == "modifyContact") {
+                $newTwitter = $_POST['newTwitter'];
+                $newFacebook = $_POST['newFacebook'];
+                $newPhone = $_POST['newPhone'];
+                $newAdress = $_POST['newAdress'];
+                $this->ModelLogin->changeContact($newTwitter,
+                $newFacebook, $newPhone, $newAdress, $userID);
+            } 
+
+            header("location: ../admin");
+            exit();
+        }
+    }
+
+
 }
-
-

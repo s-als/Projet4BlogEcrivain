@@ -13,11 +13,8 @@ class LoginController extends Controller
                 $this->errorMsg = ['errMsg' => "Veuillez renseigner tous les champs."];
             } else if ($_GET["error"] == "invalidLogin") {
                 $this->errorMsg = ['errMsg' => "L'email et / ou le mot de passe sont incorrects."];
-
             } 
-            
         }
-
     $this->render('login', $this->errorMsg);
     }
 
@@ -26,7 +23,6 @@ class LoginController extends Controller
         $user = $this->ModelLogin->getUser($email, $password);
         return $user;
     }*/
-
 }
 
 

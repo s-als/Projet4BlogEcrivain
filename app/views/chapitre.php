@@ -19,11 +19,15 @@
         <legend>Ajouter un commentaire</legend>
         <div class="form-group">
             <label for="name">Nom</label><br />
-            <input type="text" class="form-control" id="name" name="name" />
+            <input type="text" class="form-control" id="name" name="name" maxlength="255" required/>
         </div>
         <div class="form-group">
             <label for="comment">Commentaire</label><br />
-            <textarea class="form-control" id="comment" name="comment"></textarea>
+            <textarea class="form-control" id="comment" name="comment" maxlength="1500" rows="10" required></textarea>
+        </div>
+        <div id="the-count">
+            <span id="current">0</span>
+            <span id="maximum">/ 300</span>
         </div>
         <div class="form-group">
             <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />

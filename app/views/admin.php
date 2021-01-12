@@ -1,21 +1,156 @@
 
 
-
+ <!-- retirer le style de la balise p -->
 <p style="padding-top: 200px;">
+
+<style>
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+</style>
+
+
+<button class="btn btn-dark" onclick="toggleDark()">Activer/Désactiver le mode sombre</button>
+
+<script>
+function toggleDark() {
+	let content = document.getElementById('content');
+	let cardAdmin = document.getElementById('cardAdmin');
+	
+	let element = document.body;
+	element.classList.toggle("dark-mode");
+	content.classList.toggle("dark-mode");
+	cardAdmin.classList.toggle("dark-mode");
+}
+</script>
+
+
+
+
+
+<div id="helloUser">Bonjour <?= $_SESSION["userName"] ?></div>
+
   <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Profile
+    Modifier mon profil
   </a>
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Profile
-  </button>
 </p>
 <div class="collapse" id="collapseExample">
-  <div class="card card-body">
+  <div class="card card-body" id="cardAdmin">
   <div class="container-xl" id="adminProfile">Profil
-		<div>Modifier votre nom
-			<form method="post" action="" class="form1">
+		<div>Modifier votre nom : <?= $_SESSION["userName"] ?>
+		<form action="../admin/modifyProfile" method="post" name="changeNameForm" class="default-form">
+			<div class="form-group">
+				<label for="changeName">Nom</label>
+				<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
+				<input type="hidden" name="modifyType" value="modifyName" />
+				<input type="text" name="newName" class="form-control" id="changeName" placeholder="Votre nom actuel est : <?= $_SESSION["userName"] ?>" required>
+			</div>
+			<button type="submit" name="submit" class="btn btn-primary">Valider</button>
+		</form>
+
+		<div>Modifier votre email : <?= $_SESSION["userEmail"] ?>
+		<form action="../admin/modifyProfile" method="post" name="changeEmailForm" class="default-form">
+			<div class="form-group">
+				<label for="changeEmail">Email</label>
+				<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
+				<input type="hidden" name="modifyType" value="modifyEmail" />
+				<input type="email" name="newEmail" class="form-control" id="changeEmail" placeholder="Votre email actuel est : <?= $_SESSION["userEmail"] ?>" required>
+			</div>
+			<button type="submit" name="submit" class="btn btn-primary">Valider</button>
+		</form>
+
+
+		<div>Modifier votre mot de passe
+		<form action="../admin/modifyProfile" method="post" name="changePwdForm" class="default-form">
+			<div class="form-group">
+				<label for="changePwd">Mot de passe</label>
+				<div id="errorMsgPwd">Attention vos mots de passe ne correspondent pas.</div>
+				<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
+				<input type="hidden" name="modifyType" value="modifyPwd" />
+				<input type="password" name="newPwd" class="form-control" id="changePwd" placeholder="Entrer votre mot de passe..." required>
+				<input type="password" class="form-control" id="confirm_password" placeholder="Confirmer votre mot de passe..." required>
+			</div>
+			<button type="submit" name="submit" class="btn btn-primary">Valider</button>
+		</form>
+
+		<script>
+//A déplacer
+			//Compare password input when user change it:
+			let password = document.getElementById("changePwd")
+			, confirm_password = document.getElementById("confirm_password")
+			, errorMsgPwd = document.getElementById("errorMsgPwd");
+
+			function validatePassword(){
+			if(changePwd.value != confirm_password.value) {
+				confirm_password.setCustomValidity("Les mots de passe ne sont pas identiques.");
+				errorMsgPwd.style.display = "block";
+			} else {
+				confirm_password.setCustomValidity('');
+				errorMsgPwd.style.display = "none";
+			}
+			}
+
+			changePwd.onchange = validatePassword;
+			confirm_password.onkeyup = validatePassword;
+		</script>
+
+
+		<div>Modifier la partie "A propos"
+		<form action="../admin/modifyProfile" method="post" name="changeAboutForm" class="default-form">
+			<div class="form-group">
+				<label for="changeAbout">A propos</label>
+				<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
+				<input type="hidden" name="modifyType" value="modifyAbout" />
+				<textarea class="myeditablediv form-control" id="changeAbout" name="newAbout" required><?= $_SESSION["about"] ?></textarea>
+			</div>
+			<button type="submit" name="submit" class="btn btn-primary">Valider</button>
+		</form>
+
+
+		<div>Modifier vos coordonnées de contact
+		<form action="../admin/modifyProfile" method="post" name="changeNameForm" class="default-form">
+			<div class="form-group">
+				<label for="changeTwitter">Twitter</label>
+				<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
+				<input type="hidden" name="modifyType" value="modifyContact" />
+				<input type="text" name="newTwitter" class="form-control" id="changeTwitter" placeholder="Entrer votre twitter..." required>
+
+				<label for="changeFacebook">Facebook</label>
+				<input type="text" name="newFacebook" class="form-control" id="changeFacebook" placeholder="Entrer votre Facebook..." required>
+
+				<label for="changePhone">Phone</label>
+				<input type="tel" name="newPhone" class="form-control" id="changePhone" placeholder="Entrer votre téléphone..." required>
+
+				<label for="changeAdress">Adress</label>
+				<input type="text" name="newAdress" class="form-control" id="changeAdress" placeholder="Entrer votre adresse..." required>
+			</div>
+			<button type="submit" name="submit" class="btn btn-primary">Valider</button>
+		</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<form method="post" action="../admin/modifyName" class="form1">
+			<div>
+				<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
+				<input type="submit" value="Valider"/>
+			</div>
+		</form>
+
+			<form method="post" action="../admin/modifyName" class="form1">
 			<!-- Email input -->
 				<div class="form-outline mb-4">
+					<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
 					<input type="text" id="form1name" class="form-control" >
 					<label class="form-label" for="form1name" style="margin-left: 0px;">Prénom et nom</label>
 					<div class="form-notch">
@@ -23,6 +158,12 @@
 						<div class="form-notch-middle" style="width: 100px;"></div>
 						<div class="form-notch-trailing"></div>
 					</div>
+					<form method="post" action="../admin/modifyName">
+                                <div>
+                                    <input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
+                                    <input type="submit" onclick="return confirm('Attention vous vous apprêtez à changer votre nom. Continuer ?');" value="Valider"/>
+                                </div>
+                            </form>
 				</div>
 			<!-- Submit button -->
 				<button type="submit" class="btn btn-primary btn-block">Valider</button>
@@ -135,9 +276,6 @@
   <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseChptCom" role="button" aria-expanded="false" aria-controls="collapseChptCom">
     Editer des chapitres et des commentaires
   </a>
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChptCom" aria-expanded="false" aria-controls="collapseChptCom">
-  Editer des chapitres et des commentaires
-  </button>
 </p>
 <div class="collapse" id="collapseChptCom">
   <div class="card card-body">
@@ -192,7 +330,7 @@
 			<?php endforeach; ?>
 
 			<li class="nav-item" role="presentation">
-				<a class="nav-link" id="newChapter-tab" data-bs-toggle="tab" href="#newChapter" role="tab" aria-controls="contact" aria-selected="false">Créer un nouveau chapitre</a>
+				<a class="nav-link active" id="newChapter-tab" data-bs-toggle="tab" href="#newChapter" role="tab" aria-controls="contact" aria-selected="false">Créer un nouveau chapitre</a>
 			</li>
  		</ul>
 

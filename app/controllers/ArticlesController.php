@@ -29,6 +29,7 @@ class ArticlesController extends Controller
         $this->loadModel("ModelComments");
         $comments = $this->ModelComments->findCommentsByPostID($URLparams3);
 
+        // A retirer ?
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $name = $_POST['name'];

@@ -47,7 +47,10 @@ class Router
         catch(Exception $e)
         {
             $errorMsg = $e->getMessage();
-            echo $errorMsg;
+            //echo $errorMsg;
+            require_once(ROOT.'app/controllers/ErrorController.php');
+            $controller = new ErrorController();
+            $controller->index();
         }
 
         

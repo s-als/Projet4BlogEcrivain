@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8" />
-    <meta name="description" content="Projet 4 Openclassroom - Blog 'Un billet simple pour l'Alaska'" />
     <meta name="author" content="Salwan AL SHIBEL" />
+    <meta name="robots" content="noindex, nofollow" />
 
     <!--CSS-->
     <link href="/public/css/bootstrap.min.css" rel="stylesheet">
@@ -9,10 +9,10 @@
 
     <!--Title-->
     <title>Blog de Jean Forteroche</title>
-    <meta name="description" content="Blog Billet simple pour l'Alaska de Jean Forteroche" />
+    <meta name="description" content="Projet 4 Openclassroom - Blog Un billet simple pour l'Alaska" />
 
     <!--Favicon-->
-    <link rel="icon" type="image/x-icon" href="/public/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/public/images/output-onlinepngtools.png" />
 
     <!--Media Queries-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />

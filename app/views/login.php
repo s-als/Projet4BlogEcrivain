@@ -36,12 +36,12 @@
 
         <div class="form-group">
             <label for="emailForm">Adresse Email</label>
-            <input type="email" name="email" class="form-control" id="emailForm" placeholder="Entrer votre email...">
+            <input type="email" name="email" class="form-control" id="emailForm" placeholder="Entrer votre email..." maxlength="255" required>
         </div>
 
         <div class="form-group">
             <label for="passwordForm">Mot de passe</label>
-            <input type="password" name="password" class="form-control" id="passwordForm" placeholder="Mot de passe...">
+            <input type="password" name="password" class="form-control" id="passwordForm" placeholder="Mot de passe..." maxlength="1500" required>
             <span class="help-block"><?php echo $errMsg; ?></span>
         </div>
         

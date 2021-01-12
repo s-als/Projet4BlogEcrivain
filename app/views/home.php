@@ -8,7 +8,7 @@
                 <div class="col-lg-8 mx-auto">
                     <h2 class="text-white mb-4"> A propos de moi </h2>
                     <p class="text-white-50">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac sem rhoncus libero venenatis malesuada. Duis eget velit neque. Etiam vel aliquam nulla, quis rhoncus ipsum. Nulla at aliquet velit, eget pellentesque nisl. Donec facilisis massa a ligula ultricies, quis gravida lorem consectetur. In hac habitasse platea dictumst. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam vel scelerisque lectus. Phasellus justo augue, vulputate et consectetur eget, tincidunt ac nisl. Nunc semper cursus ligula, id placerat velit ullamcorper at. In metus purus, ornare at sagittis eu, rutrum ut mauris.
+                        <?=$about[0]?>
                     </p>
                     <a class="btn btn-secondary btn-sm" href="#projects">Mon livre</a>
                     <a class="btn btn-secondary btn-sm" href="#projects">Mes roles</a>
