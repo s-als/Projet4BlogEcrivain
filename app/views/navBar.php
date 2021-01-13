@@ -46,8 +46,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-
+                
+                <!--If on login page, show only Back to home-->
                 <?php if(isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/login') : ?>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.php#page-top"><i class="bi bi-arrow-left"></i>Retour à l'acceuil</a>
+                    </li>
+                <!--If on admin page, show only Back to home-->
+                <?php elseif(isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/admin'): ?>
                     <li class="nav-item active">
                         <a class="nav-link" href="/index.php#page-top"><i class="bi bi-arrow-left"></i>Retour à l'acceuil</a>
                     </li>
@@ -65,6 +71,7 @@
                         <a class="nav-link" href="/index.php#signup">Contact</a>
                     </li>
                     
+                    <!--If Admin is connected, show admin navigation options-->
                     <?php
                         if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 'ADMIN'){
                             echo  
