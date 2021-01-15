@@ -52,11 +52,30 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/index.php#page-top"><i class="bi bi-arrow-left"></i>Retour à l'acceuil</a>
                     </li>
-                <!--If on admin page, show only Back to home-->
+
+                <!--If on admin page, show Back to home, and -->
                 <?php elseif(isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/admin'): ?>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/index.php#page-top"><i class="bi bi-arrow-left"></i>Retour à l'acceuil</a>
+                        <a class="nav-link" href="/admin#page-top"><i class="bi bi-wrench"></i>Espace administration</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="" data-bs-toggle="collapse" href="#collapseProfile" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Modifier mon profil
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" data-bs-toggle="collapse" href="#collapseChptCom" role="button" aria-expanded="false" aria-controls="collapseChptCom">
+                        Editer des chapitres et des commentaires
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.php#page-top">Acceuil du blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Déconnexion</a>
+                    </li>
+
+
                 <?php else: ?>
                     <li class="nav-item active">
                         <a class="nav-link" href="/index.php#page-top">Acceuil</a>
@@ -70,7 +89,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/index.php#signup">Contact</a>
                     </li>
-                    
+
                     <!--If Admin is connected, show admin navigation options-->
                     <?php
                         if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 'ADMIN'){

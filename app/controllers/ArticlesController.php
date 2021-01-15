@@ -68,4 +68,6 @@ class ArticlesController extends Controller
             exit();
         }
       }
+
+      
 }

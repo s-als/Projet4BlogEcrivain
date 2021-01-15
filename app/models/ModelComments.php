@@ -27,13 +27,24 @@ class ModelComments extends ModelMain{
         return parent::queryAndfetch($sql);
     }
 
-    public function addFlag($id){
-        $sql = "UPDATE ". $this->table ." SET flag = 'yes' WHERE id='$id'" ;
+    public function deleteComment($id){
+        $sql = "DELETE FROM ". $this->table ." WHERE id=" .$id;
         return parent::queryAndfetch($sql);
     }
 
-    public function removeFlag(){
-        $sql = "INSERT INTO ". $this->table ." (flag) VALUES('false')";
+    public function addFlag($id){
+        $sql = "UPDATE ". $this->table ." SET flag = '1' WHERE id='$id'" ;
         return parent::queryAndfetch($sql);
     }
+
+    public function removeFlag($id){
+        $sql = "UPDATE ". $this->table ." SET flag = '0' WHERE id='$id'" ;
+        return parent::queryAndfetch($sql);
+    }
+
+    public function getflagedComments(){
+        $sql = "SELECT * FROM ". $this->table ." WHERE flag=1";
+        return parent::queryAndfetchAll($sql);
+    }
+    
 }

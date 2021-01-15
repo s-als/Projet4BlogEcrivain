@@ -16,7 +16,10 @@
 
       <script type="text/javascript">
         tinymce.init({
-          selector: '.myeditablediv'
+          selector: '.myeditablediv',
+          plugins: 'quickbars image lists code table codesample',
+          toolbar: 'formatselect | forecolor backcolor | bold italic underline strikethrough | link image blockquote codesample | align bullist numlist | code ',
+          height: 400,
         });
       </script>
 

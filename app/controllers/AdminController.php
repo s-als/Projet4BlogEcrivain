@@ -75,8 +75,9 @@ class AdminController extends Controller
 
         $this->loadModel("ModelComments");
         $comments = $this->ModelComments->getAll();
+        $flagedComments = $this->ModelComments->getflagedComments();
 
-        $this->render('admin', compact('articles', 'comments'));
+        $this->render('admin', compact('articles', 'comments', 'flagedComments'));
     }
 
     public function addChapter() {
@@ -147,5 +148,22 @@ class AdminController extends Controller
         }
     }
 
+    public function removeflag(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id = $_POST['id'];
+            $post_id = $_POST['post_id'];
+            $this->loadModel("ModelComments");
+
+            if (isset($_POST['valid'])) {
+                $this->ModelComments->removeFlag($id);
+            }
+            elseif (isset($_POST['delete'])) {
+                $this->ModelComments->deleteComment($id);
+            }
+            
+            header("location: ../admin");
+            exit();
+        }
+      }
 
 }

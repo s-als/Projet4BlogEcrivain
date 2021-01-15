@@ -658,8 +658,9 @@ bottom: 0;
 *************************************************/
 
 #helloUser {
-  padding-top: 7em;
+  padding-top: 10em;
   text-align: center;
+  margin-bottom: 10em;
 }
 
 #helloUser h1 {
@@ -673,6 +674,73 @@ bottom: 0;
 .tox-tinymce {
   min-height: 600px;
 }
+
+
+#editContainer, #profileContainer {
+  text-align: center;
+}
+
+#editContainer a, #profileContainer a{
+  margin: 2em 0;
+}
+
+#editContainer a[href*="collapse"], #profileContainer a[href*="collapse"]{
+  background-color: #12a6ee;
+  color: black;
+  font-size: 100%;
+}
+
+@media (max-width: 1200px){
+  #myChapterTabs, #myComsTab {
+    overflow: scroll;
+    max-height: 120px;
+  }
+}
+
+.nav-tabs .nav-link.active {
+  color: #0d152d;
+  background-color: #12a6ee;
+  border-color: #36516c #3e4f60 #fff;
+}
+
+.editionTitle{
+  text-align: center;
+  padding: 2em 0;
+  font-size: 1.2em;
+  font-weight: 800;
+  color: black;
+}
+
+#title {
+  border-radius: 0.2em;
+  border: solid;
+  padding: 0 0.3em;
+
+}
+
+.editionTextArea {
+  margin: 2em 3em;
+}
+
+.tox-statusbar{
+  display: none !important;
+}
+
+.tox-tinymce {
+  border-radius: 0.2em !important;
+  border: solid !important;
+}
+
+.tox-editor-header
+{
+  border-bottom: solid !important;
+}
+
+.editionButton {
+  text-align: center;
+  padding: 2em;
+}
+
 
 
 
@@ -784,6 +852,10 @@ input:checked + .slider:before {
 
 .default-form button {
   margin: 2em;
+}
+
+.about-form {
+  max-width: 800px;
 }
 
 /*

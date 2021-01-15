@@ -7,9 +7,9 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2 class="text-white mb-4"> A propos de moi </h2>
-                    <p class="text-white-50">
+                    <div class="text-white">
                         <?=$about[0]?>
-                    </p>
+                    </div>
                     <a class="btn btn-secondary btn-sm" href="#projects">Mon livre</a>
                     <a class="btn btn-secondary btn-sm" href="#projects">Mes roles</a>
                 </div>

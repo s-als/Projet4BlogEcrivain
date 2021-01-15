@@ -39,6 +39,14 @@ abstract class ModelMain
         $query->execute();
         return $query->fetch();
     }
+
+    public function queryAndfetchAll($sql){
+        $query = $this->_connection->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+
     
 
     /*public function getById(){
