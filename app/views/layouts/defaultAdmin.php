@@ -39,6 +39,7 @@
     <script src="public/js/bootstrap.bundle.min.js"></script>
     <script src="public/js/darkmod.js"></script>
     <script src="public/js/main.js"></script>
+    <script src="public/js/commentary.js"></script>
 </body>
 
 </html>

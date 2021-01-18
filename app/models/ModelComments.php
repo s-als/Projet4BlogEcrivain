@@ -32,6 +32,11 @@ class ModelComments extends ModelMain{
         return parent::queryAndfetch($sql);
     }
 
+    public function editCom($id, $editedCom){
+        $sql = "UPDATE ". $this->table ." SET comment = '$editedCom' WHERE id='$id'" ;
+        return parent::queryAndfetch($sql);
+    }
+
     public function addFlag($id){
         $sql = "UPDATE ". $this->table ." SET flag = '1' WHERE id='$id'" ;
         return parent::queryAndfetch($sql);

@@ -147,7 +147,7 @@ class AdminController extends Controller
             exit();
         }
     }
-
+    
     public function removeflag(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $id = $_POST['id'];
@@ -156,13 +156,15 @@ class AdminController extends Controller
 
             if (isset($_POST['valid'])) {
                 $this->ModelComments->removeFlag($id);
+                //$editedCom = $_POST['editedCom'];
+                //$this->ModelComments->editCom($id, $editedCom);
             }
             elseif (isset($_POST['delete'])) {
                 $this->ModelComments->deleteComment($id);
             }
             
-            header("location: ../admin");
-            exit();
+            //header("location: ../admin");
+            //exit();
         }
       }
 

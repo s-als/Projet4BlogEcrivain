@@ -12,7 +12,7 @@ window.onscroll = () => {
 
 
 // Smooth Scrolling
-const links = document.querySelectorAll('a');
+const links = document.querySelectorAll('#nav a');
 links.forEach(
     element => element.addEventListener('click', function (){
         scrollTo(document.querySelector(element.hash).offsetTop, 1450);
@@ -120,6 +120,57 @@ $(".navbar-toggler").click(function(){
 
 
 
+//Animation on validation or on suppression of a comment in admin gestion page
+/*
+function validCom(id) {
+  //let idCom = `comRow${id}`;
+  alert(`Commentaire validé`)
+  //document.getElementById(idCom).style.display = 'none';
+  document.getElementById(`validFlagComment${id}`).innerHTML = "Commentaire validé !<i class='bi bi-check'>";
+  document.getElementById(`validFlagComment${id}`).style.backgroundColor = 'green';
+};
+*/
+
+//Change row content onclick with a smooth transition when validate or delete a comment:
+function validCom(id, chapter) {
+  const commentary = new Commentary(id, chapter);
+  commentary.validCom();
+}
+
+function deleteCom(id, chapter) {
+  const commentary = new Commentary(id, chapter);
+  commentary.deleteCom();
+}
+
+
+
+
+/*function deleteCom(id) {
+  confirm('Attention vous vous apprêtez à supprimer un commentaire. Continuer ?');
+  let idCom = `comRow${id}`;
+  let comRow = document.getElementById(idCom);
+  let btnDelete = document.getElementById(`deleteFlagComment${id}`);
+  //let comBtnsCell = document.getElementById(`comBtnsCell${id}`);
+
+  btnDelete.innerHTML = "En cours de suppression...";
+  btnDelete.style.backgroundColor = 'grey';
+  comRow.classList.add('transitionOneLinear');
+  comRow.classList.add('visuallyhidden');
+
+  comRow.addEventListener('transitionend', function(e) {
+	setTimeout(function () {
+    //comBtnsCell.innerHTML = 'Commentaire supprimé<i class="bi bi-check"></i>';
+    comRow.innerHTML = "<td class='comRowTd' colspan='5'>Commentaire supprimé<i class='bi bi-check'></i></td>";
+    comRow.classList.remove('visuallyhidden');
+		//comRow.classList.add('hidden');
+		//alert('Commentaire supprimé.');
+    }, 2000);
+    }, {
+      capture: false,
+      once: true,
+      passive: false
+    });
+};*/
 
 
 // A faire en pure JS

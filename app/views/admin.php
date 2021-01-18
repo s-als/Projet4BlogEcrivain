@@ -102,7 +102,7 @@
 
 
 					<!--Commentaries Tabs-->
-					<div class="tab-pane fade" id="commentaries" role="tabpanel" aria-labelledby="commentaries-tab">	
+					<div class="tab-pane fade" id="commentaries" role="tabpanel" aria-labelledby="commentaries-tab">
 						<ul class="nav nav-tabs" id="myComsTab" role="tablist">
 							<?php 
 							$divCom ='';
@@ -111,24 +111,31 @@
 
 							<?php foreach($flagedComments as $flagedComment):
 								$allComs = $allComs.
-										'<tr>
+										'<tr id="comRow'.$flagedComment["id"].'">
 											<th scope="row">'.$flagedComment["post_id"].'</th>
 											<td>'.$flagedComment["name"].'</td>
-											<td>'.$flagedComment["comment"].'</td>
+											<td class="commentTableColumn">
+												<form id="formEditCom" method="post" action="../admin/removeflag">
+													<textarea class="myeditablediv form-control" id="changeAbout" name="editedCom" required>'.$flagedComment["comment"].'
+													</textarea>
+													
+												</form>
+											</td>
 											<td>'.$flagedComment["create_date"].'</td>
-											<td>
-												<form method="post" action="../admin/removeflag">
-													<div>
+											<td id="comBtnsCell'.$flagedComment["id"].'">
+												<iframe name="stayHere" style="display:none;"></iframe>
+												<form id="formbtns" class="d-md-flex btnsEditColumn" method="post" action="" target="stayHere">
+													<div class="d-md-flex flex-column justify-content-center">
 														<input type="hidden" name="id" value="'.$flagedComment["id"].'" />
 														<input type="hidden" name="post_id" value="'.$flagedComment["post_id"].'" />
-														<input type="submit" id="validFlagComment" name="valid" value="Valider ce commentaire"/>
-														<input type="submit" id="deleteFlagComment" name="delete" value="Supprimer ce commentaire"/>
+														<button type="submit" class="btn btn-primary" id="validFlagComment'.$flagedComment["id"].'" name="valid" value="Valider ce commentaire" onclick="validCom('.$flagedComment["id"].','.$flagedComment["post_id"].')"> Valider ce commentaire</button>
+														<button type="submit" class="btn btn-primary" id="deleteFlagComment'.$flagedComment["id"].'" name="delete" value="Supprimer ce commentaire" onclick="deleteCom('.$flagedComment["id"].','.$flagedComment["post_id"].')"> Supprimer ce commentaire</button>
 													</div>
 												</form>
 											</td>
 										</tr>';?>
 							<?php endforeach; ?>
-							
+									<!-- ../admin/removeflag -->
 							<?php foreach($articles as $article):  ?>
 								<?php $comList ='';?>
 								<li class="nav-item" role="presentation">
@@ -159,12 +166,12 @@
 										<tr>
 										<th scope="col">Chapitre</th>
 										<th scope="col">Nom</th>
-										<th scope="col">Commentaires</th>
+										<th scope="col">Commentaires(Editer)</th>
 										<th scope="col">Date</th>
 										<th scope="col">Edition(Approuver, supprimer)</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody class="align-middle">
 										<?php echo $allComs?>
 									</tbody>
 								</table>
