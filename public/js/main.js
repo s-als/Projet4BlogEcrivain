@@ -182,7 +182,7 @@ function deleteCom(id, chapter) {
 
 // A faire en pure JS
 //Displaying character count of textarea
-/*$('#comment').keyup(function() {
+$('#comment').keyup(function() {
     
     var characterCount = $(this).val().length,
         current = $('#current'),
@@ -194,20 +194,14 @@ function deleteCom(id, chapter) {
     if (characterCount < 70) {
       current.css('color', '#666');
     }
-    if (characterCount > 70 && characterCount < 90) {
-      current.css('color', '#6d5555');
-    }
-    if (characterCount > 90 && characterCount < 100) {
+    if (characterCount > 600 && characterCount < 800) {
       current.css('color', '#793535');
     }
-    if (characterCount > 100 && characterCount < 120) {
+    if (characterCount > 800 && characterCount < 900) {
       current.css('color', '#841c1c');
     }
-    if (characterCount > 120 && characterCount < 139) {
-      current.css('color', '#8f0001');
-    }
     
-    if (characterCount >= 140) {
+    if (characterCount >= 900) {
       maximum.css('color', '#8f0001');
       current.css('color', '#8f0001');
       theCount.css('font-weight','bold');
@@ -218,16 +212,3 @@ function deleteCom(id, chapter) {
     
         
   }); 
-
-var maxchar = 300;
-var i = document.getElementById("commentText");
-var c = document.getElementById("remainText");
-c.innerHTML = maxchar;
-
-i.addEventListener("keydown", count);
-
-function count(e) {
-  var len = i.value.length;
-  len >= maxchar ? i.value = i.value.slice(0,len-1) : c.innerHTML = maxchar - len - 1;
-}
-*/

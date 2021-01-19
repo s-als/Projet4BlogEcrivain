@@ -23,11 +23,11 @@
         </div>
         <div class="form-group">
             <label for="comment">Commentaire</label><br />
-            <textarea class="form-control" id="comment" name="comment" maxlength="1500" rows="10" required></textarea>
+            <textarea class="form-control" id="comment" name="comment" maxlength="1000" rows="10" required></textarea>
         </div>
         <div id="the-count">
             <span id="current">0</span>
-            <span id="maximum">/ 300</span>
+            <span id="maximum">/ 1000</span>
         </div>
         <div class="form-group">
             <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
