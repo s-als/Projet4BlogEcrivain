@@ -483,6 +483,31 @@ bottom: 0;
   border-bottom: solid;
 }
 
+.comment{
+  margin-bottom: 3em;
+}
+
+.commentDiv {
+  box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.78);
+  background-color: #fafafa !important;
+  padding: 2.14286rem !important;
+  margin: auto;
+}
+.comment-text {
+ margin: 1.2em 0; 
+}
+
+.comment-flag {
+ text-align: end; 
+}
+
+.g-font-size-12 {
+  font-size: 0.85714rem !important;
+}
+.g-color-gray-dark-v4 {
+  color: #777 !important;
+}
+
 
 /*************************************************
 ---------------------FOOTER-----------------------
@@ -693,7 +718,7 @@ bottom: 0;
 }
 
 .tox-tinymce {
-  min-height: 600px;
+  min-height: 400px;
 }
 
 

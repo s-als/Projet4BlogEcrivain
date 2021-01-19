@@ -109,6 +109,21 @@ class AdminController extends Controller
         }
     }
 
+    public function editCom() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $id = $_POST['id'];
+            $editedName = $_POST['name'];
+            $editedCom = $_POST['mytextarea'];
+
+            $this->loadModel("ModelComments");
+            $this->ModelComments->editCom($id, $editedName, $editedCom);
+
+            header("location: ../admin");
+            exit();
+        }
+    }
+
     public function modifyProfile() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 

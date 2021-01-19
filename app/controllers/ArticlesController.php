@@ -30,7 +30,7 @@ class ArticlesController extends Controller
         $comments = $this->ModelComments->findCommentsByPostID($URLparams3);
 
         // A retirer ?
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        /*if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $name = $_POST['name'];
             $comment = $_POST['comment'];
@@ -40,7 +40,7 @@ class ArticlesController extends Controller
 
             header('Location: ../chapitre/' . $post_id);
             exit();
-        }
+        }*/
         
 
         $this->render('chapitre', compact('article', 'comments'));

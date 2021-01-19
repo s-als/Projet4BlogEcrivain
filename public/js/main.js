@@ -14,44 +14,43 @@ window.onscroll = () => {
 // Smooth Scrolling
 const links = document.querySelectorAll('#nav a');
 links.forEach(
-    element => element.addEventListener('click', function (){
+    element => element.addEventListener('click', function () {
         scrollTo(document.querySelector(element.hash).offsetTop, 1450);
-}));
+    }));
 
-const scrollTo = function(to, duration) {
+const scrollTo = function (to, duration) {
     const
-    element = document.scrollingElement || document.documentElement,
-    start = element.scrollTop;
-//console.log('element.scrollTop:' + element.scrollTop);
+        element = document.scrollingElement || document.documentElement,
+        start = element.scrollTop;
+    //console.log('element.scrollTop:' + element.scrollTop);
     const
-    change = to - start,
-    startDate = +new Date(),
-    // t = current time
-    // b = start value
-    // c = change in value
-    // d = duration
-    easeInOutExpo = function(t, b, c, d) {
-        t /= d/2;
-        if (t < 1) return c/2 * Math.pow( 2, 10 * (t - 1) ) + b;
-        t--;
-        return c/2 * ( -Math.pow( 2, -10 * t) + 2 ) + b;
-    },
-    animateScroll = function() {
-        const currentDate = +new Date();
-//console.log('currentDate:' + currentDate);
-        const currentTime = currentDate - startDate;
-//console.log('startDate:' + startDate);
-//console.log('currentTime:' + currentTime);
-        element.scrollTop = parseInt(easeInOutExpo(currentTime, start, change, duration));
-//console.log('easeInOutExpo:' + easeInOutExpo(currentTime, start, change, duration));
-//console.log('New element.scrollTop:' + element.scrollTop);
-        if(currentTime < duration) {
-            requestAnimationFrame(animateScroll);
-        }
-        else {
-            element.scrollTop = to;
-        }
-    };
+        change = to - start,
+        startDate = +new Date(),
+        // t = current time
+        // b = start value
+        // c = change in value
+        // d = duration
+        easeInOutExpo = function (t, b, c, d) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+            t--;
+            return c / 2 * (-Math.pow(2, -10 * t) + 2) + b;
+        },
+        animateScroll = function () {
+            const currentDate = +new Date();
+            //console.log('currentDate:' + currentDate);
+            const currentTime = currentDate - startDate;
+            //console.log('startDate:' + startDate);
+            //console.log('currentTime:' + currentTime);
+            element.scrollTop = parseInt(easeInOutExpo(currentTime, start, change, duration));
+            //console.log('easeInOutExpo:' + easeInOutExpo(currentTime, start, change, duration));
+            //console.log('New element.scrollTop:' + element.scrollTop);
+            if (currentTime < duration) {
+                requestAnimationFrame(animateScroll);
+            } else {
+                element.scrollTop = to;
+            }
+        };
     animateScroll();
 };
 
@@ -61,20 +60,22 @@ const scrollTo = function(to, duration) {
 // Back To Top Button
 const mybutton = document.getElementById("BackToTopBtn");
 
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+    scrollFunction()
+};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
 }
 
 
 
 // Navbar with beatiful tabs
-function beautifulTabs(){
+function beautifulTabs() {
     var tabsNewAnim = $('#navbarSupportedContent');
     //var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
     var activeItemNewAnim = tabsNewAnim.find('.active');
@@ -84,38 +85,44 @@ function beautifulTabs(){
     var itemPosNewAnimLeft = activeItemNewAnim.position();
 
     $(".hori-selector").css({
-      "top":itemPosNewAnimTop.top + "px", 
-      "left":itemPosNewAnimLeft.left + "px",
-      "height": activeWidthNewAnimHeight + "px",
-      "width": activeWidthNewAnimWidth + "px"
-    });
-
-    $("#navbarSupportedContent").on("click","li",function(e){
-      $('#navbarSupportedContent ul li').removeClass("active");
-      $(this).addClass('active');
-      var activeWidthNewAnimHeight = $(this).innerHeight();
-      var activeWidthNewAnimWidth = $(this).innerWidth();
-      var itemPosNewAnimTop = $(this).position();
-      var itemPosNewAnimLeft = $(this).position();
-      $(".hori-selector").css({
-        "top":itemPosNewAnimTop.top + "px", 
-        "left":itemPosNewAnimLeft.left + "px",
+        "top": itemPosNewAnimTop.top + "px",
+        "left": itemPosNewAnimLeft.left + "px",
         "height": activeWidthNewAnimHeight + "px",
         "width": activeWidthNewAnimWidth + "px"
-      });
+    });
+
+    $("#navbarSupportedContent").on("click", "li", function (e) {
+        $('#navbarSupportedContent ul li').removeClass("active");
+        $(this).addClass('active');
+        var activeWidthNewAnimHeight = $(this).innerHeight();
+        var activeWidthNewAnimWidth = $(this).innerWidth();
+        var itemPosNewAnimTop = $(this).position();
+        var itemPosNewAnimLeft = $(this).position();
+        $(".hori-selector").css({
+            "top": itemPosNewAnimTop.top + "px",
+            "left": itemPosNewAnimLeft.left + "px",
+            "height": activeWidthNewAnimHeight + "px",
+            "width": activeWidthNewAnimWidth + "px"
+        });
     });
 }
 
-$(document).ready(function(){
-    setTimeout(function(){ beautifulTabs(); });
+$(document).ready(function () {
+    setTimeout(function () {
+        beautifulTabs();
+    });
 });
 
-$(window).on('resize', function(){
-    setTimeout(function(){ beautifulTabs(); }, 500);
+$(window).on('resize', function () {
+    setTimeout(function () {
+        beautifulTabs();
+    }, 500);
 });
 
-$(".navbar-toggler").click(function(){
-    setTimeout(function(){ beautifulTabs(); });
+$(".navbar-toggler").click(function () {
+    setTimeout(function () {
+        beautifulTabs();
+    });
 });
 
 
@@ -133,13 +140,13 @@ function validCom(id) {
 
 //Change row content onclick with a smooth transition when validate or delete a comment:
 function validCom(id, chapter) {
-  const commentary = new Commentary(id, chapter);
-  commentary.validCom();
+    const commentary = new Commentary(id, chapter);
+    commentary.validCom();
 }
 
 function deleteCom(id, chapter) {
-  const commentary = new Commentary(id, chapter);
-  commentary.deleteCom();
+    const commentary = new Commentary(id, chapter);
+    commentary.deleteCom();
 }
 
 
@@ -175,7 +182,7 @@ function deleteCom(id, chapter) {
 
 // A faire en pure JS
 //Displaying character count of textarea
-/*$('textarea').keyup(function() {
+/*$('#comment').keyup(function() {
     
     var characterCount = $(this).val().length,
         current = $('#current'),
@@ -210,4 +217,17 @@ function deleteCom(id, chapter) {
     }
     
         
-  });*/
+  }); 
+
+var maxchar = 300;
+var i = document.getElementById("commentText");
+var c = document.getElementById("remainText");
+c.innerHTML = maxchar;
+
+i.addEventListener("keydown", count);
+
+function count(e) {
+  var len = i.value.length;
+  len >= maxchar ? i.value = i.value.slice(0,len-1) : c.innerHTML = maxchar - len - 1;
+}
+*/

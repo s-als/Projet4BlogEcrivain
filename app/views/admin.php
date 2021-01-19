@@ -4,6 +4,7 @@
 	<div class="container-lg" id="helloUser">
 		<h1>Bonjour <?= $_SESSION["userName"] ?></h1>
 		<p>Bienvenue sur votre espace d'administration.</p>
+		<p>Vous pouvez modifier les chapitres, les commentaires, et votre profil.</p>
 		<div class="container darkModContainer">
 			<div><i class="bi bi-sun"></i></div>
 			<label class="switch">
@@ -25,7 +26,7 @@
 	<div class="container-lg" id="editContainer">
 
 		<a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseChptCom" role="button" aria-expanded="false" aria-controls="collapseChptCom">
-			Editer des chapitres et des commentaires
+			Editer les chapitres et les commentaires
 		</a>
 
 		<div class="collapse" id="collapseChptCom">
@@ -114,17 +115,12 @@
 										'<tr id="comRow'.$flagedComment["id"].'">
 											<th scope="row">'.$flagedComment["post_id"].'</th>
 											<td>'.$flagedComment["name"].'</td>
-											<td class="commentTableColumn">
-												<form id="formEditCom" method="post" action="../admin/removeflag">
-													<textarea class="myeditablediv form-control" id="changeAbout" name="editedCom" required>'.$flagedComment["comment"].'
-													</textarea>
-													
-												</form>
+											<td class="commentTableColumn"> '.$flagedComment["comment"].'
 											</td>
 											<td>'.$flagedComment["create_date"].'</td>
 											<td id="comBtnsCell'.$flagedComment["id"].'">
 												<iframe name="stayHere" style="display:none;"></iframe>
-												<form id="formbtns" class="d-md-flex btnsEditColumn" method="post" action="" target="stayHere">
+												<form id="formbtns" class="d-md-flex btnsEditColumn" method="post" action="../admin/removeflag" target="stayHere">
 													<div class="d-md-flex flex-column justify-content-center">
 														<input type="hidden" name="id" value="'.$flagedComment["id"].'" />
 														<input type="hidden" name="post_id" value="'.$flagedComment["post_id"].'" />
@@ -135,7 +131,7 @@
 											</td>
 										</tr>';?>
 							<?php endforeach; ?>
-									<!-- ../admin/removeflag -->
+
 							<?php foreach($articles as $article):  ?>
 								<?php $comList ='';?>
 								<li class="nav-item" role="presentation">
@@ -144,11 +140,45 @@
 
 								<?php foreach($comments as $comment):
 									if($comment['post_id'] == $article['id']){
-										$comList = $comList. $comment["comment"];
+										//$comList = $comList. '<div>'.$comment["comment"].'</div>' ;
+										
+
+										ob_start(); ?>
+
+										<div class="row row-cols-1 comment">
+											<div class="col-md-8 commentDiv">
+												<form method="post" action="admin/editCom">
+
+													<div class="editionTitle mb-15">
+														<label for="name">Nom</label><br />
+														<input class="mb-0" type="text" id="name" name="name" value="<?=$comment['name']?>" >
+														<span class="g-color-gray-dark-v4 g-font-size-12"><?=$comment['create_date']?></span>
+													</div>
+
+													<div class="editionTextArea mb-15 comment-text">
+														<textarea class="myeditablediv" name="mytextarea"><?=$comment['comment']?></textarea>
+													</div>
+
+													<div class="editionButton mb-15 comment-flag">
+														<input type="hidden" name="id" value="<?= $comment['id'] ?>" />
+														<button class="btn btn-secondary" type="submit" >Editer</button>
+													</div>
+
+												</form>
+											</div>
+										</div>
+								
+										<?php $comDiv = ob_get_clean();
+										$comList = $comList. $comDiv ;
 										}?>
 								<?php endforeach; ?>
 
+
+
+
+
 								<?php $divCom = $divCom .'<div class="tab-pane fade" id="Com-' .str_replace(" ", "", $article["title"]). '" role="tabpanel" aria-labelledby="Com-' .str_replace(" ", "", $article["title"]). '-tab">' .$comList.'</div>';?>
+
 
 							<?php endforeach; ?>
 

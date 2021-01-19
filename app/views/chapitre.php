@@ -77,7 +77,8 @@
                             <?=$comment['comment']?>
                         </div>
                         <div class="mb-15 comment-flag">
-                        <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
+                        <!-- Ligne suivante à effacer ?--> 
+                        <input type="hidden" name="id" value="<?= $comment['id'] ?>" /> 
                             <form method="post" action="../flagComment">
                                 <div>
                                     <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
@@ -88,46 +89,9 @@
                         </div>
                     </div>
                 </div>
-
-                
-
             <?php endforeach; ?>
         </div>
     </div>
-
-<style>
-
-.comment{
-    margin-bottom: 3em;
-}
-
-.commentDiv {
-    box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.78);
-    background-color: #fafafa !important;
-    padding: 2.14286rem !important;
-    margin: auto;
-}
-.comment-text {
-   margin: 1.2em 0; 
-}
-
-.comment-flag {
-   text-align: end; 
-}
-
-.g-font-size-12 {
-    font-size: 0.85714rem !important;
-}
-.g-color-gray-dark-v4 {
-    color: #777 !important;
-}
-
-
-</style>
-
-
-
-
 </div>
 
 
