@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h2 class="text-white mb-4"> A propos de moi </h2>
-                    <div class="text-white">
+                    <div class="text-white" id="textAbout">
                         <?=$about[0]?>
                     </div>
                     <a class="btn btn-secondary btn-sm" href="#projects">Mon livre</a>
@@ -21,6 +21,8 @@
         </div>
     </div>
 </section>
+
+
 <!-- Projects-->
 <section class="projects-section margeAndRounded bg-light" id="projects">
     <div class="anchor">
@@ -31,7 +33,7 @@
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
                         <h4>Un billet simple pour l'Alaska</h4>
-                        <p class="text-black-50 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac sem rhoncus libero venenatis malesuada.</p>
+                        <p class="text-black-50 mb-0" id="bookPresentation">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac sem rhoncus libero venenatis malesuada.</p>
                         <a class="btn btn-secondary btn-sm" href="/articles">Commencer la lecture</a>
                     </div>
                 </div>
@@ -77,7 +79,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
-                <h2 class="text-white">Bonne lecture à tous et n'hésitez pas à écrire un petit commentaire pour partagez votre ressentit.</h2>
+                <h2 class="text-white">Bonne lecture à tous et n'hésitez pas à écrire un petit commentaire.</h2>
             </div>
         </div>
     </div>
@@ -92,7 +94,7 @@
                         <i class="fas fa-map-marked-alt mb-2"></i>
                         <h4 class="text-uppercase m-0">Boite Postale</h4>
                         <hr class="my-4" />
-                        <div class="small text-black-50">0 Rue fictive 03079 Melas</div>
+                        <div class="small text-black-50"><?=$contacts[0]['adress']?></div>
                     </div>
                 </div>
             </div>
@@ -102,7 +104,7 @@
                         <i class="fas fa-envelope mb-2"></i>
                         <h4 class="text-uppercase m-0">Email</h4>
                         <hr class="my-4" />
-                        <div class="small text-black-50">contact@jeanforteroche.fr</div>
+                        <div class="small text-black-50"><?=$contacts[0]['email']?></div>
                     </div>
                 </div>
             </div>
@@ -112,14 +114,14 @@
                         <i class="fas fa-mobile-alt mb-2"></i>
                         <h4 class="text-uppercase m-0">Tatoo</h4>
                         <hr class="my-4" />
-                        <div class="small text-black-50">04 22 52 10 10</div>
+                        <div class="small text-black-50"><?=$contacts[0]['phone']?></div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="social d-flex justify-content-center">
-            <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-            <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+            <a class="mx-2" href="<?=$contacts[0]['twitter']?>"><i class="fab fa-twitter"></i></a>
+            <a class="mx-2" href="<?=$contacts[0]['facebook']?>"><i class="fab fa-facebook-f"></i></a>
             <a class="mx-2" href="https://github.com/s-als/Projet4BlogEcrivain"><i class="fab fa-github"></i></a>
         </div>
     </div>

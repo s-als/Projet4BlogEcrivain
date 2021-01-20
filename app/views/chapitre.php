@@ -1,14 +1,14 @@
 <header class="chaptershead">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
-            <h1 class="mx-auto my-5 text-uppercase "><?=$article['title']?></h1>
+            <h1 class="mx-auto my-5 text-uppercase" id="chptPageTitle"><?=$article['title']?></h1>
         </div>
     </div>
 </header>
 
 <div class= "chapterContent container-lg">
     <h2><?=$article['title']?></h2>
-    <p><?=$article['content']?></p>
+    <?=$article['content']?>
 </div>
 
 <div class= "commentaryContent container-lg">
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
-            <button type="submit" name="submit" class="btn btn-primary">Valider</button>
+            <button type="submit" name="submit" class="btn btn-gold">Valider</button>
         </div>
     </form>
 
@@ -83,7 +83,7 @@
                                 <div>
                                     <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
                                     <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
-                                    <input type="submit" onclick="return confirm('Attention vous vous apprêtez à signaler un commentaire. Continuer ?');" value="Signaler ce commentaire"/>
+                                    <input id='flagBtn' type="submit" onclick="return confirm('Attention vous vous apprêtez à signaler un commentaire. Continuer ?');" value="Signaler ce commentaire"/>
                                 </div>
                             </form>
                         </div>

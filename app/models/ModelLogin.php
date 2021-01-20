@@ -56,5 +56,10 @@ class ModelLogin extends ModelMain{
         return parent::queryAndfetch($sql);
     }
 
+    public function getContact(){
+        $sql = "SELECT email, twitter, facebook, phone, adress FROM ". $this->table ." WHERE id=1";
+        return parent::queryAndfetchAll($sql);
+    }
+
 
 }

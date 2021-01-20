@@ -12,7 +12,11 @@ class HomeController extends Controller
     public function index(){
         $this->loadModel("ModelLogin");
         $about = $this->ModelLogin->getAbout();
-        $this->render('home', compact('about'));
+
+        $this->loadModel("ModelLogin");
+        $contacts = $this->ModelLogin->getContact();
+
+        $this->render('home', compact('about', 'contacts'));
     }
 
 }

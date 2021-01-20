@@ -108,12 +108,15 @@
 							<?php 
 							$divCom ='';
 							$allComs= '';
+							$count = 0;
 							?>
 
 							<?php foreach($flagedComments as $flagedComment):
+								$count = $count + 1;
+
 								$allComs = $allComs.
 										'<tr id="comRow'.$flagedComment["id"].'">
-											<th scope="row">'.$flagedComment["post_id"].'</th>
+											<th scope="row">Chapitre '.$flagedComment["post_id"].'</th>
 											<td>'.$flagedComment["name"].'</td>
 											<td class="commentTableColumn"> '.$flagedComment["comment"].'
 											</td>
@@ -124,8 +127,8 @@
 													<div class="d-md-flex flex-column justify-content-center">
 														<input type="hidden" name="id" value="'.$flagedComment["id"].'" />
 														<input type="hidden" name="post_id" value="'.$flagedComment["post_id"].'" />
-														<button type="submit" class="btn btn-primary" id="validFlagComment'.$flagedComment["id"].'" name="valid" value="Valider ce commentaire" onclick="validCom('.$flagedComment["id"].','.$flagedComment["post_id"].')"> Valider ce commentaire</button>
-														<button type="submit" class="btn btn-primary" id="deleteFlagComment'.$flagedComment["id"].'" name="delete" value="Supprimer ce commentaire" onclick="deleteCom('.$flagedComment["id"].','.$flagedComment["post_id"].')"> Supprimer ce commentaire</button>
+														<button type="submit" class="btn btn-success" id="validFlagComment'.$flagedComment["id"].'" name="valid" value="Valider ce commentaire" onclick="validCom('.$flagedComment["id"].','.$flagedComment["post_id"].')"> Valider ce commentaire</button>
+														<button type="submit" class="btn btn-danger" id="deleteFlagComment'.$flagedComment["id"].'" name="delete" value="Supprimer ce commentaire" onclick="deleteCom('.$flagedComment["id"].','.$flagedComment["post_id"].')"> Supprimer ce commentaire</button>
 													</div>
 												</form>
 											</td>
@@ -183,7 +186,7 @@
 							<?php endforeach; ?>
 
 							<li class="nav-item" role="presentation">
-								<a class="nav-link" id="allCom-tab" data-bs-toggle="tab" href="#allCom" role="tab" aria-controls="contact" aria-selected="false">Commentaires<br> signalés</a>
+								<a class="nav-link" id="allCom-tab" data-bs-toggle="tab" href="#allCom" role="tab" aria-controls="contact" aria-selected="false">Commentaires<br> signalés (<?php echo $count?>)</a>
 							</li>
 						</ul>
 
@@ -196,7 +199,7 @@
 										<tr>
 										<th scope="col">Chapitre</th>
 										<th scope="col">Nom</th>
-										<th scope="col">Commentaires(Editer)</th>
+										<th scope="col">Commentaires</th>
 										<th scope="col">Date</th>
 										<th scope="col">Edition(Approuver, supprimer)</th>
 										</tr>
@@ -233,7 +236,7 @@
 								<label for="changeName">Nom</label>
 								<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
 								<input type="hidden" name="modifyType" value="modifyName" />
-								<input type="text" name="newName" class="form-control" id="changeName" placeholder="Votre nom actuel est : <?= $_SESSION["userName"] ?>" required>
+								<input type="text" name="newName" class="form-control" id="changeName" placeholder="<?= $_SESSION["userName"] ?>" required>
 							</div>
 							<button type="submit" name="submit" class="btn btn-primary">Valider</button>
 						</form>
@@ -245,7 +248,7 @@
 								<label for="changeEmail">Email</label>
 								<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
 								<input type="hidden" name="modifyType" value="modifyEmail" />
-								<input type="email" name="newEmail" class="form-control" id="changeEmail" placeholder="Votre email actuel est : <?= $_SESSION["userEmail"] ?>" required>
+								<input type="email" name="newEmail" class="form-control" id="changeEmail" placeholder="<?= $_SESSION["userEmail"] ?>" required>
 							</div>
 							<button type="submit" name="submit" class="btn btn-primary">Valider</button>
 						</form>

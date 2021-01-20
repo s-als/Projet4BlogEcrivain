@@ -45,7 +45,7 @@
             <span class="help-block"><?php echo $errMsg; ?></span>
         </div>
         
-        <button type="submit" name="submit" class="btn btn-primary">Valider</button>
+        <button type="submit" name="submit" class="btn btn-rust">Valider</button>
     </form>
 </div>
 

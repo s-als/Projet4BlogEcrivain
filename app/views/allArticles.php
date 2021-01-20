@@ -1,32 +1,12 @@
 <header class="chaptershead">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
-            <h1 class="mx-auto my-5 text-uppercase ">Sommaire</h1>
+            <h1 class="mx-auto my-5 text-uppercase" id="sommaire">Sommaire</h1>
         </div>
     </div>
 </header>
-<!--
-<div class="container-xxl">
-    <div class="row">
-        <?/*php foreach($articles as $article): ?>
-            <div class="col-lg-4">
-                <a href="/articles/chapitre/<?= str_replace(' ', '_', $article['id'])?>">
-                <div class="row">
-                    <div class="col-5">
-                        <img class="img-fluid" src="public/images/book-picture4.png" alt="" />
-                    </div>
-                    <div class="col-3">
-                        <?=$article['title']?>
-                    </div>
-                </div>
-                </a>
-            </div>
-        <?/*php endforeach; */?>
-    </div>
-</div>
--->
 
-<div class="row row-cols-1 row-cols-md-3 g-4" id="allChapters">
+<div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" id="allChapters">
     <?php foreach($articles as $article):?>
         <?php $count = 0;?>
 
@@ -35,18 +15,16 @@
             $count = $count + 1;}?>
         <?php endforeach; ?>
 
-        <div class="col-lg-4">
+        <div class="col">
             <a href="/articles/chapitre/<?= str_replace(' ', '_', $article['id'])?>">
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title"><?=$article['title']?></h5>
-                            <p class="card-text"><?=substr($article['content'],0, 200);?>[...]</p>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted"><?= 'Commentaires (' .$count. ')'?></small>
-                        </div>
+                <div class="card h-100">
+                    <img src="" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title"><?=$article['title']?></h5>
+                        <p class="card-text"><?=substr($article['content'],0, 200);?>[...]</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><?= 'Commentaires (' .$count. ')'?></small>
                     </div>
                 </div>
             </a>
