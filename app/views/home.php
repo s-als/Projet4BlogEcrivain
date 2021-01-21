@@ -27,7 +27,6 @@
 <section class="projects-section margeAndRounded bg-light" id="projects">
     <div class="anchor">
         <div class="container">
-            <!-- Featured Project Row-->
             <div class="row align-items-center no-gutters mb-4 mb-lg-5">
                 <div class="col-xl-8 col-lg-7"><figure><img class="img-fluid mb-3 mb-lg-0" src="public/images/alaska4.jpg" alt="un train pret à partir pour l'Alaska" /></figure></div>
                 <div class="col-xl-4 col-lg-5">
@@ -74,6 +73,7 @@
 </section>
 <div class="anchor" id="signup">
 </div>
+
 <!-- Signup-->
 <section class="signup-section margeAndRounded" id="">
     <div class="container">
@@ -84,6 +84,7 @@
         </div>
     </div>
 </section>
+
 <!-- Contact-->
 <section class="contact-section margeAndRounded bg-black">
     <div class="container">

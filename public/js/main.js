@@ -1,16 +1,3 @@
-// Navbar turn white on scroll
-/*
-const navbar = document.getElementById("nav");
-window.onscroll = () => {
-    if (window.scrollY > 100) {
-        navbar.classList.add("navbar-shrink");
-    } else {
-        navbar.classList.remove("navbar-shrink");
-    }
-};
-*/
-
-
 // Smooth Scrolling
 const links = document.querySelectorAll('#nav a');
 links.forEach(
@@ -22,7 +9,6 @@ const scrollTo = function (to, duration) {
     const
         element = document.scrollingElement || document.documentElement,
         start = element.scrollTop;
-    //console.log('element.scrollTop:' + element.scrollTop);
     const
         change = to - start,
         startDate = +new Date(),
@@ -38,13 +24,8 @@ const scrollTo = function (to, duration) {
         },
         animateScroll = function () {
             const currentDate = +new Date();
-            //console.log('currentDate:' + currentDate);
             const currentTime = currentDate - startDate;
-            //console.log('startDate:' + startDate);
-            //console.log('currentTime:' + currentTime);
             element.scrollTop = parseInt(easeInOutExpo(currentTime, start, change, duration));
-            //console.log('easeInOutExpo:' + easeInOutExpo(currentTime, start, change, duration));
-            //console.log('New element.scrollTop:' + element.scrollTop);
             if (currentTime < duration) {
                 requestAnimationFrame(animateScroll);
             } else {
@@ -53,7 +34,6 @@ const scrollTo = function (to, duration) {
         };
     animateScroll();
 };
-
 
 
 
@@ -77,7 +57,6 @@ function scrollFunction() {
 // Navbar with beatiful tabs
 function beautifulTabs() {
     var tabsNewAnim = $('#navbarSupportedContent');
-    //var selectorNewAnim = $('#navbarSupportedContent').find('li').length;
     var activeItemNewAnim = tabsNewAnim.find('.active');
     var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
     var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
@@ -127,18 +106,8 @@ $(".navbar-toggler").click(function () {
 
 
 
-//Animation on validation or on suppression of a comment in admin gestion page
-/*
-function validCom(id) {
-  //let idCom = `comRow${id}`;
-  alert(`Commentaire validé`)
-  //document.getElementById(idCom).style.display = 'none';
-  document.getElementById(`validFlagComment${id}`).innerHTML = "Commentaire validé !<i class='bi bi-check'>";
-  document.getElementById(`validFlagComment${id}`).style.backgroundColor = 'green';
-};
-*/
 
-//Change row content onclick with a smooth transition when validate or delete a comment:
+//In admin page, change row content onclick with a smooth transition when validate or delete a comment:
 function validCom(id, chapter) {
     const commentary = new Commentary(id, chapter);
     commentary.validCom();
@@ -151,36 +120,6 @@ function deleteCom(id, chapter) {
 
 
 
-
-/*function deleteCom(id) {
-  confirm('Attention vous vous apprêtez à supprimer un commentaire. Continuer ?');
-  let idCom = `comRow${id}`;
-  let comRow = document.getElementById(idCom);
-  let btnDelete = document.getElementById(`deleteFlagComment${id}`);
-  //let comBtnsCell = document.getElementById(`comBtnsCell${id}`);
-
-  btnDelete.innerHTML = "En cours de suppression...";
-  btnDelete.style.backgroundColor = 'grey';
-  comRow.classList.add('transitionOneLinear');
-  comRow.classList.add('visuallyhidden');
-
-  comRow.addEventListener('transitionend', function(e) {
-	setTimeout(function () {
-    //comBtnsCell.innerHTML = 'Commentaire supprimé<i class="bi bi-check"></i>';
-    comRow.innerHTML = "<td class='comRowTd' colspan='5'>Commentaire supprimé<i class='bi bi-check'></i></td>";
-    comRow.classList.remove('visuallyhidden');
-		//comRow.classList.add('hidden');
-		//alert('Commentaire supprimé.');
-    }, 2000);
-    }, {
-      capture: false,
-      once: true,
-      passive: false
-    });
-};*/
-
-
-// A faire en pure JS
 //Displaying character count of textarea
 $('#comment').keyup(function() {
     
@@ -209,6 +148,4 @@ $('#comment').keyup(function() {
       maximum.css('color','#666');
       theCount.css('font-weight','normal');
     }
-    
-        
-  }); 
+}); 

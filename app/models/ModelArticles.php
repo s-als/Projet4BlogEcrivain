@@ -1,11 +1,8 @@
 <?php
 
-//namespace app\model;
-
 class ModelArticles extends ModelMain{
 
     
-
     public function __construct(){
         $this->table = "posts";
         $this->getConnection();
@@ -13,32 +10,31 @@ class ModelArticles extends ModelMain{
 
     public function findByChapterTitle(string $chapterTitle){
         $chapterTitleWithSpace = str_replace('_', ' ', $chapterTitle);
-        $sql = "SELECT * FROM ". $this->table ." WHERE title='" .$chapterTitleWithSpace."'";
-        return parent::queryAndfetch($sql);
+        $sql = "SELECT * FROM ". $this->table ." WHERE title= ?";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array($chapterTitleWithSpace));
+        return $prepare->fetch();
     }
 
-    /*public function findByChapterID($id){
-        $sql = "SELECT * FROM ". $this->table ." WHERE id=" .$id;
-        $query = $this->_connection->prepare($sql);
-        $query->execute();
-        return $query->fetch();
-    }*/
-
     public function findByChapterID($id){
-        $sql = "SELECT * FROM ". $this->table ." WHERE id=" .$id;
-        return parent::queryAndfetch($sql);
+        $sql = "SELECT * FROM ". $this->table ." WHERE id= :id";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':id' => $id));
+        return $prepare->fetch();
     }
 
     public function addChapterToDBB($newChapterTitle, $newChapterContent){
-        $sql = "INSERT INTO ". $this->table ." (title, content) VALUES('$newChapterTitle', '$newChapterContent')";
-        return parent::queryAndfetch($sql);
+        $sql = "INSERT INTO ". $this->table ." (title, content) VALUES(:newChapterTitle, :newChapterContent)";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':newChapterTitle' => $newChapterTitle, ':newChapterContent' => $newChapterContent));
+        return $prepare->fetch();
     }
 
     public function editChapterInDBB($id, $newChapterTitle, $newChapterContent){
-        $sql = "UPDATE ". $this->table ." SET title = '$newChapterTitle', content = '$newChapterContent' WHERE id='$id'" ;
-        return parent::queryAndfetch($sql);
+        $sql = "UPDATE ". $this->table ." SET title = :newChapterTitle, content = :newChapterContent WHERE id= :id";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':newChapterTitle' => $newChapterTitle, ':newChapterContent' => $newChapterContent, ':id' => $id));
+        return $prepare->fetch();
     }
-
-
 
 }

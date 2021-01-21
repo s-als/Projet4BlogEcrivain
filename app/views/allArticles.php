@@ -1,3 +1,5 @@
+<!-- Show all chapters links and a count of how many comments for witch of them -->
+
 <header class="chaptershead">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
@@ -31,13 +33,3 @@
         </div>
     <?php endforeach; ?>
 </div>
-
-
-<!-- Contact-->
-<section class="contact-section bg-black">
-    <div class="social d-flex justify-content-center">
-        <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-        <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-        <a class="mx-2" href="https://github.com/s-als/Projet4BlogEcrivain"><i class="fab fa-github"></i></a>
-    </div>
-</section>

@@ -1,18 +1,27 @@
 <?php
 
-//namespace app\controllers;
-
 class AdminController extends Controller
 {
-    
-    //private $errorMsg = "";
-
+    //Load models and send data to view:
     public function index(){
 
+        //Check if user is connect and is admin:
         if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 'ADMIN') {
-            $this->showAdminPage();
-        };
+            //$this->showAdminPage();
+            $this->loadModel("ModelArticles");
+            $articles = $this->ModelArticles->getAll();
+
+            $this->loadModel("ModelComments");
+            $comments = $this->ModelComments->getAll();
+            $flagedComments = $this->ModelComments->getflagedComments();
+
+            $this->loadModel("ModelLogin");
+            $contacts = $this->ModelLogin->getContact();
+
+            $this->render('admin', compact('articles', 'comments', 'flagedComments', 'contacts'));
+        }/*;*/
         
+        /*
         if (isset($_POST["submit"])) {
             $email = $_POST["email"];
             $password = $_POST["password"];
@@ -30,6 +39,7 @@ class AdminController extends Controller
             
             $this->showAdminPage();
         }
+        */
         else {
             header("location: login");
             exit();
@@ -44,6 +54,7 @@ class AdminController extends Controller
         };
     }*/
 
+    /*
     public function checkEmailAndPwd($email, $password) {
         $this->loadModel("ModelLogin");
         $user = $this->ModelLogin->getUserByEmail($email);
@@ -62,6 +73,7 @@ class AdminController extends Controller
             }
         return $user;
     }
+    */
 
     /*public function checkRoles($roles) {
         $this->loadModel("ModelLogin");
@@ -69,6 +81,8 @@ class AdminController extends Controller
         return $userByRole;
     }*/
 
+    //Load the necessary models for the admin page and send them to the admin view:
+    /*
     public function showAdminPage() {
         $this->loadModel("ModelArticles");
         $articles = $this->ModelArticles->getAll();
@@ -77,8 +91,12 @@ class AdminController extends Controller
         $comments = $this->ModelComments->getAll();
         $flagedComments = $this->ModelComments->getflagedComments();
 
-        $this->render('admin', compact('articles', 'comments', 'flagedComments'));
+        $this->loadModel("ModelLogin");
+        $contacts = $this->ModelLogin->getContact();
+
+        $this->render('admin', compact('articles', 'comments', 'flagedComments', 'contacts'));
     }
+    */
 
     public function addChapter() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -103,7 +121,7 @@ class AdminController extends Controller
 
             $this->loadModel("ModelArticles");
             $this->ModelArticles->editChapterInDBB($id, $newChapterTitle, $newChapterContent);
-
+            
             header("location: ../admin");
             exit();
         }
@@ -115,9 +133,14 @@ class AdminController extends Controller
             $id = $_POST['id'];
             $editedName = $_POST['name'];
             $editedCom = $_POST['mytextarea'];
-
             $this->loadModel("ModelComments");
-            $this->ModelComments->editCom($id, $editedName, $editedCom);
+            
+            if (isset($_POST['valid'])) {
+                $this->ModelComments->editCom($id, $editedName, $editedCom);
+            }
+            elseif (isset($_POST['delete'])) {
+                $this->ModelComments->deleteComment($id);
+            }
 
             header("location: ../admin");
             exit();
@@ -165,21 +188,17 @@ class AdminController extends Controller
     
     public function removeflag(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+
             $id = $_POST['id'];
             $post_id = $_POST['post_id'];
             $this->loadModel("ModelComments");
 
             if (isset($_POST['valid'])) {
                 $this->ModelComments->removeFlag($id);
-                //$editedCom = $_POST['editedCom'];
-                //$this->ModelComments->editCom($id, $editedCom);
             }
             elseif (isset($_POST['delete'])) {
                 $this->ModelComments->deleteComment($id);
             }
-            
-            //header("location: ../admin");
-            //exit();
         }
       }
 

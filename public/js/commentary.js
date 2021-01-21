@@ -1,4 +1,4 @@
-//Ask for a confirmation before delete, and change row content with a smooth transition
+//Ask for a confirmation before delete, and change table row content with a smooth transition
 
 class Commentary {
 
@@ -35,11 +35,6 @@ class Commentary {
         let confirmationMsg = `"<td class='comRowTd' colspan='5'>Commentaire validé<i class='bi bi-check'></i><br>Retouver ce commentaire sous l'onglet du chapitre ` + chapterNumber + `</td>"`;
         console.log("test de validCom");
         this.changeRowContent(confirmationMsg);
-
-        //alert(`Commentaire validé`)
-        //document.getElementById(idCom).style.display = 'none';
-        //document.getElementById(`validFlagComment${id}`).innerHTML = "Commentaire validé !<i class='bi bi-check'>";
-        //document.getElementById(`validFlagComment${id}`).style.backgroundColor = 'green';
     };
 
     changeRowContent(confirmationMsg) {

@@ -27,10 +27,7 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
 
-   <!--<script src="https://cdn.tiny.cloud/1/cfqz2yrpjyxr5isitafno42pssq3wkmp616iwb2b6dcct7xl/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>-->
+    <!--jquery-->
+    <script src="/public/js/jquery-3.5.1.js"></script>
 
-   <!--jquery-->
-   <script src="/public/js/jquery-3.5.1.js"></script>
-
-    
 </head>

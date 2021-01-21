@@ -669,14 +669,17 @@ i {
 }
 
 @media (max-width: 768px) {
-    .chapterContent, .commentaryContent {
+
+    .chapterContent,
+    .commentaryContent {
         padding: 3rem 1rem;
     }
 }
 
 @media (max-width: 430px) {
     #chptPageTitle {
-        font-size: 1.8rem;;
+        font-size: 1.8rem;
+        ;
     }
 }
 
@@ -859,6 +862,7 @@ i {
     font-size: 1.5em;
     text-align: center;
     padding-top: 2em;
+    padding-bottom: 1em;
 }
 
 #loginContent form {
@@ -920,14 +924,16 @@ i {
 }
 
 @media (max-width: 576px) {
-    #editContainer, #profileContainer {
-    padding: 0;
-    margin: 0;
+
+    #editContainer,
+    #profileContainer {
+        padding: 0;
+        margin: 0;
     }
 
     #cardEditChptAndCom {
-    padding: 0;
-    margin: 0; 
+        padding: 0;
+        margin: 0;
     }
 }
 
@@ -1026,7 +1032,7 @@ i {
 
 @media (max-width: 992px) {
     #allCom thead {
-        display: none;    
+        display: none;
     }
 
     #allCom tbody {
@@ -1159,13 +1165,15 @@ input:checked+.slider:before {
 }
 
 @media (max-width: 476px) {
-    .default-form, .container-xxl {
+
+    .default-form,
+    .container-xxl {
         padding: 0px;
     }
 
     #adminProfile .default-form {
         padding: 1rem 0;
-      }
+    }
 
     #cardAdmin {
         padding: 0;
@@ -1185,461 +1193,89 @@ input:checked+.slider:before {
     max-width: 800px;
 }
 
-#formbtns .btn-success, #formbtns .btn-danger{
+#formbtns .btn-success,
+#formbtns .btn-danger {
     margin: 0.5rem auto;
 }
 
-/*
-.form1{
-  max-width: 600px;
-  margin: auto;
+
+
+/*************************************************
+----------------------404-------------------------
+*************************************************/
+
+
+#notfound {
+    position: relative;
+    height: 100vh;
 }
 
-.form-outline {
-position:relative;
+#notfound .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
-.form-outline .form-control {
-min-height:auto;
-padding:.33em .75em;
-border:0;
-background:transparent;
--webkit-transition:all .2s linear;
-transition:all .2s linear
+.notfound {
+    max-width: 767px;
+    width: 100%;
+    line-height: 1.4;
+    padding: 0px 15px;
 }
 
-.form-outline .form-control~.form-label {
-position:absolute;
-top:0;
-left:.75rem;
-padding-top:.37rem;
-pointer-events:none;
--webkit-transform-origin:0 0;
-transform-origin:0 0;
--webkit-transition:all .2s ease-out;
-transition:all .2s ease-out;
-color:rgba(0,0,0,.6);
-margin-bottom:0
+.notfound .notfound-404 h1 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 186px;
+    font-weight: 900;
+    -webkit-text-fill-color: #000000f2;
 }
 
-.form-outline .form-control~.form-notch {
-display:-webkit-box;
-display:-ms-flexbox;
-display:flex;
-position:absolute;
-left:0;
-top:0;
-width:100%;
-max-width:100%;
-height:100%;
-text-align:left;
-pointer-events:none
+.notfound h2 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
 }
 
-.form-outline .form-control~.form-notch div {
-pointer-events:none;
-border:1px solid #bdbdbd;
--webkit-box-sizing:border-box;
-box-sizing:border-box;
-background:transparent
+.notfound p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    text-transform: uppercase;
 }
 
-.form-outline .form-control~.form-notch .form-notch-leading {
-left:0;
-top:0;
-height:100%;
-width:.5rem;
-border-right:none;
-border-radius:.25rem 0 0 .25rem
+.notfound a {
+    font-family: 'Titillium Web', sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background: #5c91fe;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 1px;
+    margin-top: 15px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
 }
 
-.form-outline .form-control~.form-notch .form-notch-middle {
--webkit-box-flex:0;
--ms-flex:0 0 auto;
-flex:0 0 auto;
-width:auto;
-max-width:calc(100% - 1rem);
-height:100%;
-border-right:none;
-border-left:none
+.notfound a:hover {
+    opacity: 0.8;
 }
 
-.form-outline .form-control~.form-notch .form-notch-trailing {
--webkit-box-flex:1;
--ms-flex-positive:1;
-flex-grow:1;
-height:100%;
-border-left:none;
-border-radius:0 .25rem .25rem 0
+@media only screen and (max-width: 767px) {
+    .notfound .notfound-404 {
+        height: 110px;
+        line-height: 110px;
+    }
+
+    .notfound .notfound-404 h1 {
+        font-size: 120px;
+    }
 }
-
-.form-outline .form-control:not(.placeholder-active)::-webkit-input-placeholder {
-opacity:0
-}
-
-.form-outline .form-control:not(.placeholder-active)::-moz-placeholder {
-opacity:0
-}
-
-.form-outline .form-control:not(.placeholder-active):-ms-input-placeholder {
-opacity:0
-}
-
-.form-outline .form-control:not(.placeholder-active)::-ms-input-placeholder {
-opacity:0
-}
-
-.form-outline .form-control:not(.placeholder-active)::placeholder {
-opacity:0
-}
-
-.form-outline .form-control.active::-webkit-input-placeholder,
-.form-outline .form-control:focus::-webkit-input-placeholder {
-opacity:1
-}
-
-.form-outline .form-control.active::-moz-placeholder,
-.form-outline .form-control:focus::-moz-placeholder {
-opacity:1
-}
-
-.form-outline .form-control.active:-ms-input-placeholder,
-.form-outline .form-control:focus:-ms-input-placeholder {
-opacity:1
-}
-
-.form-outline .form-control.active::-ms-input-placeholder,
-.form-outline .form-control:focus::-ms-input-placeholder {
-opacity:1
-}
-
-.form-outline .form-control.active::placeholder,
-.form-outline .form-control:focus::placeholder {
-opacity:1
-}
-
-.form-outline .form-control:focus {
--webkit-box-shadow:none!important;
-box-shadow:none!important
-}
-
-.form-outline .form-control.active~.form-label,
-.form-outline .form-control:focus~.form-label {
--webkit-transform:translateY(-1rem) translateY(.1rem) scale(.8);
-transform:translateY(-1rem) translateY(.1rem) scale(.8)
-}
-
-.form-outline .form-control:focus~.form-label {
-color:#1266f1
-}
-
-.form-outline .form-control.active~.form-notch .form-notch-middle,
-.form-outline .form-control:focus~.form-notch .form-notch-middle {
-border-top:none;
-border-right:none;
-border-left:none;
--webkit-transition:all .2s linear;
-transition:all .2s linear
-}
-
-.form-outline .form-control:focus~.form-notch .form-notch-middle {
-border-bottom:.125rem solid;
-border-color:#1266f1
-}
-
-.form-outline .form-control.active~.form-notch .form-notch-leading,
-.form-outline .form-control:focus~.form-notch .form-notch-leading {
-border-right:none;
--webkit-transition:all .2s linear;
-transition:all .2s linear
-}
-
-.form-outline .form-control:focus~.form-notch .form-notch-leading {
-border-top:.125rem solid #1266f1;
-border-bottom:.125rem solid #1266f1;
-border-left:.125rem solid #1266f1
-}
-
-.form-outline .form-control.active~.form-notch .form-notch-trailing,
-.form-outline .form-control:focus~.form-notch .form-notch-trailing {
-border-left:none;
--webkit-transition:all .2s linear;
-transition:all .2s linear
-}
-
-.form-outline .form-control:focus~.form-notch .form-notch-trailing {
-border-color:currentcolor currentcolor currentcolor #1266f1;
-border-bottom:.125rem solid #1266f1;
-border-right:.125rem solid #1266f1;
-border-top:.125rem solid #1266f1
-}
-
-*/
-
-
-
-/*.form-control {
-  min-height:auto;
-  padding-top:5.28px;
-  padding-bottom:3.28px
- }
-
- .form-control,
- .form-control:focus {
-  -webkit-transition:all .1s linear;
-  transition:all .1s linear
- }
- .form-control:focus {
-  -webkit-box-shadow:none;
-  box-shadow:none;
-  border-color:#1266f1;
-  -webkit-box-shadow:inset 0 0 0 1px #1266f1;
-  box-shadow:inset 0 0 0 1px #1266f1
- }
- .form-control.form-control-sm {
-  font-size:.775rem;
-  line-height:1.5
- }
- .form-control.form-control-lg {
-  line-height:2.15;
-  border-radius:.25rem
- }
- .form-outline {
-  position:relative;
- }
-
- /*ok
- .form-outline .form-control {
-  min-height:auto;
-  padding:.33em .75em;
-  border:0;
-  background:transparent;
-  -webkit-transition:all .2s linear;
-  transition:all .2s linear
- }
- /*ok
- .form-outline .form-control~.form-label {
-  position:absolute;
-  top:0;
-  left:.75rem;
-  padding-top:.37rem;
-  pointer-events:none;
-  -webkit-transform-origin:0 0;
-  transform-origin:0 0;
-  -webkit-transition:all .2s ease-out;
-  transition:all .2s ease-out;
-  color:rgba(0,0,0,.6);
-  margin-bottom:0
- }
- /*ok
- .form-outline .form-control~.form-notch {
-  display:-webkit-box;
-  display:-ms-flexbox;
-  display:flex;
-  position:absolute;
-  left:0;
-  top:0;
-  width:100%;
-  max-width:100%;
-  height:100%;
-  text-align:left;
-  pointer-events:none
- }
- /*ok
- .form-outline .form-control~.form-notch div {
-  pointer-events:none;
-  border:1px solid #bdbdbd;
-  -webkit-box-sizing:border-box;
-  box-sizing:border-box;
-  background:transparent
- }
- /*ok
- .form-outline .form-control~.form-notch .form-notch-leading {
-  left:0;
-  top:0;
-  height:100%;
-  width:.5rem;
-  border-right:none;
-  border-radius:.25rem 0 0 .25rem
- }
- /*ok
- .form-outline .form-control~.form-notch .form-notch-middle {
-  -webkit-box-flex:0;
-  -ms-flex:0 0 auto;
-  flex:0 0 auto;
-  width:auto;
-  max-width:calc(100% - 1rem);
-  height:100%;
-  border-right:none;
-  border-left:none
- }
- /*ok
- .form-outline .form-control~.form-notch .form-notch-trailing {
-  -webkit-box-flex:1;
-  -ms-flex-positive:1;
-  flex-grow:1;
-  height:100%;
-  border-left:none;
-  border-radius:0 .25rem .25rem 0
- }
- /*ok
- .form-outline .form-control:not(.placeholder-active)::-webkit-input-placeholder {
-  opacity:0
- }
- /*ok
- .form-outline .form-control:not(.placeholder-active)::-moz-placeholder {
-  opacity:0
- }
- /*ok
- .form-outline .form-control:not(.placeholder-active):-ms-input-placeholder {
-  opacity:0
- }
- /*ok
- .form-outline .form-control:not(.placeholder-active)::-ms-input-placeholder {
-  opacity:0
- }
- /*ok
- .form-outline .form-control:not(.placeholder-active)::placeholder {
-  opacity:0
- }
- /*ok
- .form-outline .form-control.active::-webkit-input-placeholder,
- .form-outline .form-control:focus::-webkit-input-placeholder {
-  opacity:1
- }
- /*ok
- .form-outline .form-control.active::-moz-placeholder,
- .form-outline .form-control:focus::-moz-placeholder {
-  opacity:1
- }
- /*ok
- .form-outline .form-control.active:-ms-input-placeholder,
- .form-outline .form-control:focus:-ms-input-placeholder {
-  opacity:1
- }
- /*ok
- .form-outline .form-control.active::-ms-input-placeholder,
- .form-outline .form-control:focus::-ms-input-placeholder {
-  opacity:1
- }
- /*ok
- .form-outline .form-control.active::placeholder,
- .form-outline .form-control:focus::placeholder {
-  opacity:1
- }
-
- /*ok
- .form-outline .form-control:focus {
-  -webkit-box-shadow:none!important;
-  box-shadow:none!important
- }
- /*ok
- .form-outline .form-control.active~.form-label,
- .form-outline .form-control:focus~.form-label {
-  -webkit-transform:translateY(-1rem) translateY(.1rem) scale(.8);
-  transform:translateY(-1rem) translateY(.1rem) scale(.8)
- }
- /*ok
- .form-outline .form-control:focus~.form-label {
-  color:#1266f1
- }
- /*ok
- .form-outline .form-control.active~.form-notch .form-notch-middle,
- .form-outline .form-control:focus~.form-notch .form-notch-middle {
-  border-top:none;
-  border-right:none;
-  border-left:none;
-  -webkit-transition:all .2s linear;
-  transition:all .2s linear
- }
- /*ok
- .form-outline .form-control:focus~.form-notch .form-notch-middle {
-  border-bottom:.125rem solid;
-  border-color:#1266f1
- }
- /*ok
- .form-outline .form-control.active~.form-notch .form-notch-leading,
- .form-outline .form-control:focus~.form-notch .form-notch-leading {
-  border-right:none;
-  -webkit-transition:all .2s linear;
-  transition:all .2s linear
- }
- /*ok
- .form-outline .form-control:focus~.form-notch .form-notch-leading {
-  border-top:.125rem solid #1266f1;
-  border-bottom:.125rem solid #1266f1;
-  border-left:.125rem solid #1266f1
- }
- /*ok
- .form-outline .form-control.active~.form-notch .form-notch-trailing,
- .form-outline .form-control:focus~.form-notch .form-notch-trailing {
-  border-left:none;
-  -webkit-transition:all .2s linear;
-  transition:all .2s linear
- }
- /*ok
- .form-outline .form-control:focus~.form-notch .form-notch-trailing {
-  border-color:currentcolor currentcolor currentcolor #1266f1;
-  border-bottom:.125rem solid #1266f1;
-  border-right:.125rem solid #1266f1;
-  border-top:.125rem solid #1266f1
- }
- 
- .form-outline .form-control.disabled,
- .form-outline .form-control:disabled,
- .form-outline .form-control[readonly] {
-  background-color:#e9ecef
- }
- .form-outline .form-control.form-control-lg {
-  font-size:1rem;
-  line-height:2.15;
-  padding-left:.75em;
-  padding-right:.75em
- }
- .form-outline .form-control.form-control-lg~.form-label {
-  padding-top:.7rem
- }
- .form-outline .form-control.form-control-lg.active~.form-label,
- .form-outline .form-control.form-control-lg:focus~.form-label {
-  -webkit-transform:translateY(-1.25rem) translateY(.1rem) scale(.8);
-  transform:translateY(-1.25rem) translateY(.1rem) scale(.8)
- }
- .form-outline .form-control.form-control-sm {
-  padding:.43em .99em .35em;
-  font-size:.775rem;
-  line-height:1.6
- }
- .form-outline .form-control.form-control-sm~.form-label {
-  padding-top:.33rem;
-  font-size:.775rem
- }
- .form-outline .form-control.form-control-sm.active~.form-label,
- .form-outline .form-control.form-control-sm:focus~.form-label {
-  -webkit-transform:translateY(-.85rem) translateY(.1rem) scale(.8);
-  transform:translateY(-.85rem) translateY(.1rem) scale(.8)
- }
- .form-outline.form-white .form-control {
-  color:#fff
- }
- .form-outline.form-white .form-control~.form-label {
-  color:#fbfbfb
- }
- .form-outline.form-white .form-control~.form-notch div {
-  border-color:#fbfbfb
- }
- .form-outline.form-white .form-control:focus~.form-label {
-  color:#fff
- }
- .form-outline.form-white .form-control:focus~.form-notch .form-notch-middle {
-  border-color:#fff
- }
- .form-outline.form-white .form-control:focus~.form-notch .form-notch-leading {
-  border-top:.125rem solid #fff;
-  border-bottom:.125rem solid #fff;
-  border-left:.125rem solid #fff
- }
- .form-outline.form-white .form-control:focus~.form-notch .form-notch-trailing {
-  border-color:#fff
- }
-
-*/

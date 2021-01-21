@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-mainbg navbar-light fixed-top" id="nav">
-    <!--<a class="navbar-brand navbar-logo" href="/index.php#page-top">Blog de Jean Forteroche</a>-->
     <button class="navbar-toggler" id="responsiveNavBtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars text-white"></i>
     </button>
@@ -14,7 +13,7 @@
                         <a class="nav-link" href="/index.php#page-top"><i class="bi bi-arrow-left"></i>Retour à l'acceuil</a>
                     </li>
 
-                <!--If on admin page, show Back to home, and -->
+                <!--If on admin page, show admin option-->
                 <?php elseif(isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/admin'): ?>
                     <li class="nav-item active">
                         <a class="nav-link" href="/admin#page-top"><i class="bi bi-wrench"></i>Espace administration</a>
@@ -61,7 +60,7 @@
                             '<li class="nav-item"><a class="nav-link" href="/admin">Espace Admin</a></li>
                             <li class="nav-item"><a class="nav-link" href="/logout">Déconnexion</a></li>';
                         } else {
-                            echo '<li class="nav-item"><a class="nav-link" href="/admin">Connexion</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="/login">Connexion</a></li>';
                         }
                     ?>
                 <?php endif; ?>

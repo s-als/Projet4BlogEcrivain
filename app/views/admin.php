@@ -16,13 +16,7 @@
 	</div> <!--closing helloUser-->
 
 
-
-
-
-
-
-
-	<!--Place to edit and check all chapters and commentaries-->
+	<!--Tabs : edit and check chapters and commentaries-->
 	<div class="container-lg" id="editContainer">
 
 		<a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseChptCom" role="button" aria-expanded="false" aria-controls="collapseChptCom">
@@ -164,7 +158,9 @@
 
 													<div class="editionButton mb-15 comment-flag">
 														<input type="hidden" name="id" value="<?= $comment['id'] ?>" />
-														<button class="btn btn-secondary" type="submit" >Editer</button>
+														<button class="btn btn-secondary" type="submit" name="valid" >Editer</button>
+
+														<button class="btn btn-danger" type="submit" name="delete" >Supprimer</button>
 													</div>
 
 												</form>
@@ -309,16 +305,16 @@
 								<label for="changeTwitter">Twitter</label>
 								<input type="hidden" name="id" value="<?= $_SESSION["userID"] ?>" />
 								<input type="hidden" name="modifyType" value="modifyContact" />
-								<input type="text" name="newTwitter" class="form-control" id="changeTwitter" placeholder="Entrer votre twitter..." required>
+								<input type="text" name="newTwitter" class="form-control" id="changeTwitter" value="<?=$contacts[0]['twitter']?>" required>
 
 								<label for="changeFacebook">Facebook</label>
-								<input type="text" name="newFacebook" class="form-control" id="changeFacebook" placeholder="Entrer votre Facebook..." required>
+								<input type="text" name="newFacebook" class="form-control" id="changeFacebook" value="<?=$contacts[0]['facebook']?>" required>
 
 								<label for="changePhone">Phone</label>
-								<input type="tel" name="newPhone" class="form-control" id="changePhone" placeholder="Entrer votre téléphone..." required>
+								<input type="tel" name="newPhone" class="form-control" id="changePhone" value="<?=$contacts[0]['phone']?>" required>
 
 								<label for="changeAdress">Adress</label>
-								<input type="text" name="newAdress" class="form-control" id="changeAdress" placeholder="Entrer votre adresse..." required>
+								<input type="text" name="newAdress" class="form-control" id="changeAdress" value="<?=$contacts[0]['adress']?>" required>
 							</div>
 							<button type="submit" name="submit" class="btn btn-primary">Valider</button>
 						</form>

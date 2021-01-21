@@ -1,3 +1,5 @@
+<!-- Show selected chapter and all comments for that one -->
+
 <header class="chaptershead">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
@@ -6,15 +8,20 @@
     </div>
 </header>
 
+
+<!-- Chapter -->
 <div class= "chapterContent container-lg">
     <h2><?=$article['title']?></h2>
     <?=$article['content']?>
 </div>
 
+
+<!-- Comments -->
 <div class= "commentaryContent container-lg">
 
     <h2>Commentaires</h2>
 
+    <!-- Add a comment -->
     <form method="post" action="../addComment" class="default-form">
         <legend>Ajouter un commentaire</legend>
         <div class="form-group">
@@ -35,35 +42,22 @@
         </div>
     </form>
 
-
+    <!-- Confirmation if a comment was flaged -->
     <?php if(isset($_GET['flagOk']))
             {
                 $message = "Le commentaire a bien été signalé ! Merci.";
                 echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-                ?>
-                <!-- Au cas où je voudrais modifier le style de la fenetre de pop up:
-                <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-                <script>
-                    $( function() {
-                        $( "#dialog" ).dialog();
-                    } );
-                </script>
-                
-                <div id="dialog" title="Basic dialog">
-                <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
-                </div>
-                -->
-                <?php } ?>
+            } 
+    ?>
 
-
+    <!-- Confirmation if a new comment is written -->
     <?php if(isset($_GET['comOk'])){
                 $messageCom = "Le commentaire a été ajouté ! Merci !";
                 echo '<script type="text/javascript">window.alert("'.$messageCom.'");</script>';
-            } ?>
+            } 
+    ?>
 
-
+    <!-- Show all comments -->
     <div class="container-xxl">
         <div class="row">
             <?php foreach($comments as $comment): ?>
@@ -77,8 +71,6 @@
                             <?=$comment['comment']?>
                         </div>
                         <div class="mb-15 comment-flag">
-                        <!-- Ligne suivante à effacer ?--> 
-                        <input type="hidden" name="id" value="<?= $comment['id'] ?>" /> 
                             <form method="post" action="../flagComment">
                                 <div>
                                     <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
@@ -93,5 +85,3 @@
         </div>
     </div>
 </div>
-
-

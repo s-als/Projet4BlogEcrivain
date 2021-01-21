@@ -1,7 +1,5 @@
 <?php
 
-//namespace app\model;
-
 class ModelComments extends ModelMain{
 
     
@@ -11,45 +9,59 @@ class ModelComments extends ModelMain{
     }
     
     public function findCommentsByPostID($postID){
-        $sql = "SELECT * FROM ". $this->table ." WHERE post_id=" .$postID;
-        $query = $this->_connection->prepare($sql);
-        $query->execute();
-        return $query->fetchAll();
+        $sql = "SELECT * FROM ". $this->table ." WHERE post_id= :postID";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':postID' => $postID));
+        return $prepare->fetchAll();
     }
 
     public function findByID($id){
-        $sql = "SELECT * FROM ". $this->table ." WHERE id=" .$id;
-        return parent::queryAndfetch($sql);
+        $sql = "SELECT * FROM ". $this->table ." WHERE id= :id";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':id' => $id));
+        return $prepare->fetch();
     }
 
     public function addCommentToDBB($name, $comment, $post_id){
-        $sql = "INSERT INTO ". $this->table ." (name, comment, post_id) VALUES('$name', '$comment', '$post_id')";
-        return parent::queryAndfetch($sql);
+        $sql = "INSERT INTO ". $this->table ." (name, comment, post_id) VALUES(:name, :comment, :post_id)";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':name' => $name, ':comment' => $comment, ':post_id' => $post_id));
+        return $prepare->fetch();
     }
 
     public function deleteComment($id){
-        $sql = "DELETE FROM ". $this->table ." WHERE id=" .$id;
-        return parent::queryAndfetch($sql);
+        $sql = "DELETE FROM ". $this->table ." WHERE id= :id";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':id' => $id));
+        return $prepare->fetch();
     }
 
     public function editCom($id, $editedName, $editedCom){
-        $sql = "UPDATE ". $this->table ." SET name = '$editedName', comment = '$editedCom' WHERE id='$id'" ;
-        return parent::queryAndfetch($sql);
+        $sql = "UPDATE ". $this->table ." SET name = :editedName, comment = :editedCom WHERE id= :id" ;
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':editedName' => $editedName, ':editedCom' => $editedCom, ':id' => $id));
+        return $prepare->fetch();
     }
     
     public function addFlag($id){
-        $sql = "UPDATE ". $this->table ." SET flag = '1' WHERE id='$id'" ;
-        return parent::queryAndfetch($sql);
+        $sql = "UPDATE ". $this->table ." SET flag = '1' WHERE id= :id" ;
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':id' => $id));
+        return $prepare->fetch();
     }
 
     public function removeFlag($id){
-        $sql = "UPDATE ". $this->table ." SET flag = '0' WHERE id='$id'" ;
-        return parent::queryAndfetch($sql);
+        $sql = "UPDATE ". $this->table ." SET flag = '0' WHERE id= :id" ;
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':id' => $id));
+        return $prepare->fetch();
     }
 
     public function getflagedComments(){
         $sql = "SELECT * FROM ". $this->table ." WHERE flag=1";
-        return parent::queryAndfetchAll($sql);
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute();
+        return $prepare->fetchAll();
     }
     
 }
