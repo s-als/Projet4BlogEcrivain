@@ -7,7 +7,7 @@ class AdminController extends Controller
 
         //Check if user is connect and is admin:
         if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 'ADMIN') {
-            //$this->showAdminPage();
+            
             $this->loadModel("ModelArticles");
             $articles = $this->ModelArticles->getAll();
 
@@ -19,84 +19,14 @@ class AdminController extends Controller
             $contacts = $this->ModelLogin->getContact();
 
             $this->render('admin', compact('articles', 'comments', 'flagedComments', 'contacts'));
-        }/*;*/
-        
-        /*
-        if (isset($_POST["submit"])) {
-            $email = $_POST["email"];
-            $password = $_POST["password"];
-            //$hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-
-            if (empty($email) || empty($password)) {
-                header("location: login?error=emptyInput");
-                exit();
-            } 
-
-            if ($this->checkEmailAndPwd($email, $password) == FALSE) {
-                header("location: login?error=invalidLogin");
-                exit();
-            }
-            
-            $this->showAdminPage();
         }
-        */
+        
         else {
             header("location: login");
             exit();
         }
     }
 
-
-    /*private function isAdmin(){
-
-        if(isset($_SESSION['user']) && in_array("ROLE_ADMIN", $_SESSION['user']['roles'])) {
-
-        };
-    }*/
-
-    /*
-    public function checkEmailAndPwd($email, $password) {
-        $this->loadModel("ModelLogin");
-        $user = $this->ModelLogin->getUserByEmail($email);
-            if ($user == TRUE) {
-                $pwdVerified = password_verify($password, $user['password']);
-                if ($pwdVerified == TRUE) {
-                    $_SESSION["userEmail"] = $user['email'];
-                    $_SESSION["userRole"] = $user['roles'];
-                    $_SESSION["userID"] = $user['id'];
-                    $_SESSION["userName"] = $user['name'];
-                    $_SESSION["about"] = $user['about'];
-                }
-                //Erase $user informations:
-                $user = $pwdVerified;
-                return $user;
-            }
-        return $user;
-    }
-    */
-
-    /*public function checkRoles($roles) {
-        $this->loadModel("ModelLogin");
-        $usersByRole = $this->ModelLogin->getUserByRoles($roles);
-        return $userByRole;
-    }*/
-
-    //Load the necessary models for the admin page and send them to the admin view:
-    /*
-    public function showAdminPage() {
-        $this->loadModel("ModelArticles");
-        $articles = $this->ModelArticles->getAll();
-
-        $this->loadModel("ModelComments");
-        $comments = $this->ModelComments->getAll();
-        $flagedComments = $this->ModelComments->getflagedComments();
-
-        $this->loadModel("ModelLogin");
-        $contacts = $this->ModelLogin->getContact();
-
-        $this->render('admin', compact('articles', 'comments', 'flagedComments', 'contacts'));
-    }
-    */
 
     public function addChapter() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){

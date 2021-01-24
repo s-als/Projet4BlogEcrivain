@@ -44,7 +44,7 @@
 								<li class="nav-item" role="presentation">
 									<a class="nav-link" id=<?= str_replace(" ", "", $article['title']). "-tab"?> data-bs-toggle="tab" href=<?= "#". str_replace(" ", "", $article['title']);?> role="tab" aria-controls=<?= str_replace(" ", "", $article['title']);?> aria-selected="true"><?=$article['title']?></a>
 								</li>
-									<?php //$divTab = $divTab .'<div class="tab-pane fade" id=' .str_replace(" ", "", $article["title"]). ' role="tabpanel" aria-labelledby=' .str_replace(" ", "", $article["title"]). '-tab>' .$article["content"].'</div>'?>
+									
 								<?php 
 								$divTab = $divTab .'<div class="tab-pane fade" id=' .str_replace(" ", "", $article["title"]). ' role="tabpanel" aria-labelledby=' .str_replace(" ", "", $article["title"]). '-tab>
 									<form method="post" action="admin/editChapter">
@@ -137,7 +137,6 @@
 
 								<?php foreach($comments as $comment):
 									if($comment['post_id'] == $article['id']){
-										//$comList = $comList. '<div>'.$comment["comment"].'</div>' ;
 										
 
 										ob_start(); ?>
@@ -171,9 +170,6 @@
 										$comList = $comList. $comDiv ;
 										}?>
 								<?php endforeach; ?>
-
-
-
 
 
 								<?php $divCom = $divCom .'<div class="tab-pane fade" id="Com-' .str_replace(" ", "", $article["title"]). '" role="tabpanel" aria-labelledby="Com-' .str_replace(" ", "", $article["title"]). '-tab">' .$comList.'</div>';?>

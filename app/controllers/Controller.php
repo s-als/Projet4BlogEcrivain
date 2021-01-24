@@ -4,7 +4,6 @@ abstract class Controller
 {
     public function loadModel(string $model){
         require_once(ROOT. 'app/models/'.$model.'.php');
-        //$model = 'app\model\\' .$model;
         $this->$model = new $model();
     }
 

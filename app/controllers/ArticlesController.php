@@ -36,7 +36,7 @@ class ArticlesController extends Controller
         }
       }
 
-      public function flagComment(){
+    public function flagComment(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $id = $_POST['id'];
             $post_id = $_POST['post_id'];

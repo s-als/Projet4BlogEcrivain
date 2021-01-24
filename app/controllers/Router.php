@@ -11,7 +11,6 @@ class Router
         {   //Check URL:
             if(isset($_GET['url'])) {
 
-
                 //Put URL informations in variables:
                 $url = rtrim($_GET['url'], '/');
                 $url = filter_var($url, FILTER_SANITIZE_URL);

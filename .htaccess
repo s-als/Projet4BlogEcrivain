@@ -3,10 +3,6 @@
 #RewriteRule (.*) public/$1 [L]
 
 #RewriteEngine On
-#RewriteCond %(REQUEST_FILENAME) !-f
-#RewriteRule ^(.+)$ index.php?r=$1 [QSA,L]
-
-#RewriteEngine On
 #RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?p=$1
 
 
