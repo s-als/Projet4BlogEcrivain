@@ -11,6 +11,7 @@ class Router
         {   //Check URL:
             if(isset($_GET['url'])) {
 
+
                 //Put URL informations in variables:
                 $url = rtrim($_GET['url'], '/');
                 $url = filter_var($url, FILTER_SANITIZE_URL);
@@ -22,7 +23,7 @@ class Router
                 $controllerClass = $controller."Controller";
                 $controllerFile = ROOT.'app/controllers/'.$controllerClass.'.php';
                 $action = isset($url[1]) ? $url[1] : 'index';
-
+                $controllerObject = '';
 
                 //If a filename correspond with url[0], create an objet:
                 if(file_exists($controllerFile)){

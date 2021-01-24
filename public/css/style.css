@@ -170,6 +170,12 @@ i {
     padding: 5em 0 !important;
 }
 
+.xdebug-var-dump {
+    position: relative;
+    z-index: 9999;
+    color: rebeccapurple;
+}
+
 
 /*************************************************
 ----------------------NAVBAR----------------------

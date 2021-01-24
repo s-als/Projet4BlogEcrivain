@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 21 jan. 2021 à 02:59
+-- Généré le : ven. 22 jan. 2021 à 00:06
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `post_id` int NOT NULL,
   `flag` tinyint DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `comments`
@@ -52,6 +52,7 @@ INSERT INTO `comments` (`id`, `name`, `create_date`, `comment`, `post_id`, `flag
 (6, 'Pascal KiKal', '2020-12-30 18:00:12', 'Intéressant !', 2, 0),
 (7, 'Henri An', '2020-12-30 18:03:05', 'Blabla', 2, 0),
 (9, 'Char Laine', '2020-12-31 13:16:38', 'Je veux la suite !', 3, 0),
+(36, 'kdjksdjf', '2021-01-22 00:46:46', 'jfkjsdlkfj fkjflkjsdlf  djflsdkjf ', 1, 1),
 (32, 'Richard Gear', '2021-01-20 01:17:36', 'Very good book ! I love it !', 5, 0),
 (34, 'Madame Doubtfire', '2021-01-20 22:04:46', '<p>Super</p>', 4, 0);
 
@@ -68,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `posts`
@@ -105,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(22) NOT NULL,
   `adress` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
