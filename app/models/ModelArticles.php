@@ -37,4 +37,18 @@ class ModelArticles extends ModelMain{
         return $prepare->fetch();
     }
 
+    public function deleteChapterInDBB($id){
+        $sql = "DELETE FROM ". $this->table ." WHERE id= :id";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':id' => $id));
+        return $prepare->fetch();
+    }
+
+    public function chaptersAutoIncrementReset(){
+        $sql = "ALTER TABLE ". $this->table ." AUTO_INCREMENT=1";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute();
+        return $prepare->fetch();
+    }
+
 }

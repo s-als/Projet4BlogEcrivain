@@ -63,5 +63,12 @@ class ModelComments extends ModelMain{
         $prepare->execute();
         return $prepare->fetchAll();
     }
+
+    public function deleteChapterComments($postId){
+        $sql = "DELETE FROM ". $this->table ." WHERE post_id= :postId";
+        $prepare = $this->_connection->prepare($sql);
+        $prepare->execute(array(':postId' => $postId));
+        return $prepare->fetchAll();
+    }
     
 }

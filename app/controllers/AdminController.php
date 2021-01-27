@@ -31,8 +31,8 @@ class AdminController extends Controller
     public function addChapter() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            $newChapterTitle = $_POST['title'];
-            $newChapterContent = $_POST['mytextarea'];
+            $newChapterTitle = htmlspecialchars($_POST['title']);
+            $newChapterContent = htmlspecialchars($_POST['mytextarea']);
 
             $this->loadModel("ModelArticles");
             $this->ModelArticles->addChapterToDBB($newChapterTitle, $newChapterContent);
@@ -45,13 +45,22 @@ class AdminController extends Controller
     public function editChapter() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            $id = $_POST['chapterID'];
-            $newChapterTitle = $_POST['title'];
-            $newChapterContent = $_POST['mytextarea'];
-
+            $id = htmlspecialchars($_POST['chapterID']);
             $this->loadModel("ModelArticles");
-            $this->ModelArticles->editChapterInDBB($id, $newChapterTitle, $newChapterContent);
-            
+
+            if (isset($_POST['editChapter'])) {
+                $newChapterTitle = $_POST['title'];
+                $newChapterContent = $_POST['mytextarea'];
+                $this->ModelArticles->editChapterInDBB($id, $newChapterTitle, $newChapterContent);
+            }
+
+            elseif (isset($_POST['deleteChapter'])) {
+                $this->ModelArticles->deleteChapterInDBB($id);
+                $this->ModelArticles->chaptersAutoIncrementReset($id);
+                $this->loadModel("ModelComments");
+                $this->ModelComments->deleteChapterComments($id);
+            }
+
             header("location: ../admin");
             exit();
         }
@@ -60,9 +69,9 @@ class AdminController extends Controller
     public function editCom() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            $id = $_POST['id'];
-            $editedName = $_POST['name'];
-            $editedCom = $_POST['mytextarea'];
+            $id = htmlspecialchars($_POST['id']);
+            $editedName = htmlspecialchars($_POST['name']);
+            $editedCom = htmlspecialchars($_POST['mytextarea']);
             $this->loadModel("ModelComments");
             
             if (isset($_POST['valid'])) {
@@ -84,17 +93,17 @@ class AdminController extends Controller
             $this->loadModel("ModelLogin");
 
             if ($_POST['modifyType'] == "modifyName") {
-                $newName = $_POST['newName'];
+                $newName = htmlspecialchars($_POST['newName']);
                 $this->ModelLogin->changeName($newName, $userID);
                 $_SESSION["userName"] = $newName; 
 
             } else if ($_POST['modifyType'] == "modifyEmail") {
-                $newEmail = $_POST['newEmail'];
+                $newEmail = htmlspecialchars($_POST['newEmail']);
                 $this->ModelLogin->changeEmail($newEmail, $userID);
                 $_SESSION["userEmail"] = $newEmail;  
 
             } else if ($_POST['modifyType'] == "modifyPwd") {
-                $newPwd = $_POST['newPwd'];
+                $newPwd = htmlspecialchars($_POST['newPwd']);
                 $this->ModelLogin->changePwd($newPwd, $userID);
 
             } else if ($_POST['modifyType'] == "modifyAbout") {
@@ -103,10 +112,10 @@ class AdminController extends Controller
                 $_SESSION["about"] = $newAbout;
 
             } else if ($_POST['modifyType'] == "modifyContact") {
-                $newTwitter = $_POST['newTwitter'];
-                $newFacebook = $_POST['newFacebook'];
-                $newPhone = $_POST['newPhone'];
-                $newAdress = $_POST['newAdress'];
+                $newTwitter = htmlspecialchars($_POST['newTwitter']);
+                $newFacebook = htmlspecialchars($_POST['newFacebook']);
+                $newPhone = htmlspecialchars($_POST['newPhone']);
+                $newAdress = htmlspecialchars($_POST['newAdress']);
                 $this->ModelLogin->changeContact($newTwitter,
                 $newFacebook, $newPhone, $newAdress, $userID);
             } 
@@ -119,8 +128,8 @@ class AdminController extends Controller
     public function removeflag(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            $id = $_POST['id'];
-            $post_id = $_POST['post_id'];
+            $id = htmlspecialchars($_POST['id']);
+            $post_id = htmlspecialchars($_POST['post_id']);
             $this->loadModel("ModelComments");
 
             if (isset($_POST['valid'])) {

@@ -23,7 +23,7 @@
 
     <!-- Add a comment -->
     <form method="post" action="../addComment" class="default-form">
-        <legend>Ajouter un commentaire</legend>
+        <fieldset><legend>Ajouter un commentaire</legend></fieldset>
         <div class="form-group">
             <label for="name">Nom</label><br />
             <input type="text" class="form-control" id="name" name="name" maxlength="255" required/>

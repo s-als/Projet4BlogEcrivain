@@ -5,7 +5,7 @@
     <div id="navMarg">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                <li class="hori-selector"><div class="left"></div><div class="right"></div></li>
                 
                 <!--If on login page, show only Back to home-->
                 <?php if(isset($_SERVER['REDIRECT_URL']) && $_SERVER['REDIRECT_URL'] == '/login') : ?>

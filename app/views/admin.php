@@ -59,7 +59,8 @@
 
 										<div class="editionButton">
 											<input type="hidden" name="chapterID" value="'.$article["id"].'" />
-											<input class="btn btn-secondary" type="submit" />
+											<input class="btn btn-secondary" name="editChapter" type="submit" />
+											<input class="btn btn-danger" type="submit" name="deleteChapter" onclick="return confirm(`Attention vous vous apprêtez à effacer un chapitre et tous ses comentaires. Continuer ?`);" value="Supprimer le chapitre" />
 										</div>
 									</form>
 								</div>'

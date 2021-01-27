@@ -26,9 +26,9 @@ class ArticlesController extends Controller
 
     public function addComment() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $name = $_POST['name'];
-            $comment = $_POST['comment'];
-            $post_id = $_POST['post_id'];
+            $name = htmlspecialchars($_POST['name']);
+            $comment = htmlspecialchars($_POST['comment']);
+            $post_id = htmlspecialchars($_POST['post_id']);
             $this->loadModel("ModelComments");
             $this->ModelComments->addCommentToDBB($name, $comment, $post_id);
             header('Location: chapitre/' . $post_id . '?comOk');
@@ -38,8 +38,8 @@ class ArticlesController extends Controller
 
     public function flagComment(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $id = $_POST['id'];
-            $post_id = $_POST['post_id'];
+            $id = htmlspecialchars($_POST['id']);
+            $post_id = htmlspecialchars($_POST['post_id']);
             $this->loadModel("ModelComments");
             $this->ModelComments->addFlag($id);
             header('Location: chapitre/'. $post_id . '?flagOk');

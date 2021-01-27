@@ -30,8 +30,8 @@ class LoginController extends Controller
     {    
         if (isset($_POST["submit"])) {
 
-            $email = $_POST["email"];
-            $password = $_POST["password"];
+            $email = htmlspecialchars($_POST["email"]);
+            $password = htmlspecialchars($_POST["password"]);
 
             if (empty($email) || empty($password)) {
                 header("location: ../login?error=emptyInput");
