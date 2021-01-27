@@ -32,7 +32,7 @@ class AdminController extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $newChapterTitle = htmlspecialchars($_POST['title']);
-            $newChapterContent = htmlspecialchars($_POST['mytextarea']);
+            $newChapterContent = $_POST['mytextarea'];
 
             $this->loadModel("ModelArticles");
             $this->ModelArticles->addChapterToDBB($newChapterTitle, $newChapterContent);
@@ -71,7 +71,7 @@ class AdminController extends Controller
 
             $id = htmlspecialchars($_POST['id']);
             $editedName = htmlspecialchars($_POST['name']);
-            $editedCom = htmlspecialchars($_POST['mytextarea']);
+            $editedCom = $_POST['mytextarea'];
             $this->loadModel("ModelComments");
             
             if (isset($_POST['valid'])) {

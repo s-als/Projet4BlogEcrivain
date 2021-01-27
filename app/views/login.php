@@ -1,6 +1,6 @@
 <div class="container" id="loginContent">
     <div id="msgLogin">
-        <p>-Pour accéder à l'espace d'administration-</br> 
+        <p>-Pour accéder à l'espace d'administration-<br> 
         -Veuillez vous identifier s'il vous plait-</p>
     </div>
 

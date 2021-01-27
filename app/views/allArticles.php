@@ -23,7 +23,7 @@
                     <!-- <img src="" class="card-img-top" alt=""> -->
                     <div class="card-body">
                         <h5 class="card-title"><?=$article['title']?></h5>
-                        <p class="card-text"><?=substr($article['content'],0, 200);?>[...]</p>
+                        <?=substr($article['content'],0, 200);?>[...]
                     </div>
                     <div class="card-footer">
                         <small class="text-muted"><?= 'Commentaires (' .$count. ')'?></small>

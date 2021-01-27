@@ -666,7 +666,7 @@ i {
     color: #777 !important;
 }
 
-#flagBtn {
+.flagBtn {
     padding: 0 0.4em;
     font-size: 0.9rem;
     box-shadow: dimgrey;

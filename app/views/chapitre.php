@@ -75,7 +75,7 @@
                                 <div>
                                     <input type="hidden" name="id" value="<?= $comment['id'] ?>" />
                                     <input type="hidden" name="post_id" value="<?= $article['id'] ?>" />
-                                    <input id='flagBtn' type="submit" onclick="return confirm('Attention vous vous apprêtez à signaler un commentaire. Continuer ?');" value="Signaler ce commentaire"/>
+                                    <input class='flagBtn' type="submit" onclick="return confirm('Attention vous vous apprêtez à signaler un commentaire. Continuer ?');" value="Signaler ce commentaire"/>
                                 </div>
                             </form>
                         </div>

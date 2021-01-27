@@ -75,7 +75,7 @@
 </div>
 
 <!-- Signup-->
-<section class="signup-section margeAndRounded" id="">
+<section class="signup-section margeAndRounded">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
